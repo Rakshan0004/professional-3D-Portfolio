@@ -49,7 +49,12 @@ const AppShowcase = () => {
         <div className="showcaselayout">
           <div ref={rydeRef} className="first-project-wrapper">
             <div className="image-wrapper">
-              <img src="/images/projectEC.png" alt="E-commerce Platform" />
+              <img 
+                src="/images/projectEC.png" 
+                alt="E-commerce Platform" 
+                loading="lazy"
+                decoding="async"
+              />
             </div>
             <div className="text-content">
               <h2>
@@ -67,6 +72,8 @@ const AppShowcase = () => {
                 <img
                   src="/images/block.png"
                   alt="BlockVote — Decentralized Voting Platform"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <h2>BlockVote — Decentralized Voting Platform</h2>
@@ -74,7 +81,12 @@ const AppShowcase = () => {
 
             <div className="project" ref={ycDirectoryRef}>
               <div className="image-wrapper bg-[#EAF3FF]">
-                <img src="/images/ai-agent.png" alt="Customizable AI Agent" />
+                <img 
+                  src="/images/ai-agent.png" 
+                  alt="Customizable AI Agent" 
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
               <h2>Customizable AI Agent (RAG & Tools)</h2>
             </div>
