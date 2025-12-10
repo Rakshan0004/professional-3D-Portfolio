@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 
 import TitleHeader from "../components/TitleHeader";
@@ -6,12 +6,38 @@ import ContactExperience from "../components/models/contact/ContactExperience";
 
 const Contact = () => {
   const formRef = useRef(null);
+  const sectionRef = useRef(null);
   const [loading, setLoading] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const [form, setForm] = useState({
     user_name: "",
     user_email: "",
     message: "",
   });
+
+  // Intersection Observer for lazy loading 3D scene
+  useEffect(() => {
+    const element = sectionRef.current;
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: "200px" }
+    );
+
+    observer.observe(element);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -45,11 +71,11 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="flex-center section-padding">
+    <section id="contact" ref={sectionRef} className="flex-center section-padding">
       <div className="w-full h-full md:px-10 px-5">
         <TitleHeader
-          title="Get in Touch – Let’s Connect"
-          sub="💬 Have questions or ideas? Let’s talk! 🚀"
+          title="Get in Touch – Let's Connect"
+          sub="💬 Have questions or ideas? Let's talk! 🚀"
         />
         <div className="grid-12-cols mt-16">
           <div className="xl:col-span-5">
@@ -114,7 +140,13 @@ const Contact = () => {
           </div>
           <div className="xl:col-span-7 min-h-96">
             <div className="bg-[#cd7c2e] w-full h-full hover:cursor-grab rounded-3xl overflow-hidden">
-              <ContactExperience />
+              {isVisible ? (
+                <ContactExperience />
+              ) : (
+                <div className="flex-center w-full h-full text-white">
+                  Scroll to load 3D scene
+                </div>
+              )}
             </div>
           </div>
         </div>

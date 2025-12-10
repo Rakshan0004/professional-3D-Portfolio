@@ -12,7 +12,18 @@ const HeroExperience = () => {
   const isTablet = useMediaQuery({ query: "(max-width: 1024px)" });
 
   return (
-    <Canvas camera={{ position: [0, 0, 15], fov: 45 }}>
+    <Canvas 
+      camera={{ position: [0, 0, 15], fov: 45 }}
+      dpr={[1, 1.5]} // Limit pixel ratio for performance
+      performance={{ min: 0.5 }} // Allow framerate to drop to maintain performance
+      gl={{ 
+        antialias: !isMobile, // Disable antialiasing on mobile
+        powerPreference: "high-performance",
+        alpha: true,
+        stencil: false,
+        depth: true,
+      }}
+    >
       {/* deep blue ambient */}
       <ambientLight intensity={0.2} color="#1a1a40" />
       {/* Configure OrbitControls to disable panning and control zoom based on device type */}
@@ -23,11 +34,13 @@ const HeroExperience = () => {
         minDistance={5} // Minimum distance for zooming in
         minPolarAngle={Math.PI / 5} // Minimum angle for vertical rotation
         maxPolarAngle={Math.PI / 2} // Maximum angle for vertical rotation
+        enableDamping={true} // Smooth camera movement
+        dampingFactor={0.05}
       />
 
       <Suspense fallback={null}>
         <HeroLights />
-        <Particles count={100} />
+        <Particles count={isMobile ? 50 : 100} />
         <group
           scale={isMobile ? 0.7 : 1}
           position={[0, -3.5, 0]}

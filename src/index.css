@@ -15,6 +15,32 @@ body {
   font-family: "Mona Sans", sans-serif;
 }
 
+/* Performance optimizations */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Enable hardware acceleration for better performance */
+canvas {
+  transform: translateZ(0);
+}
+
+/* Optimize animations - only apply will-change when animating */
+.hero-text {
+  will-change: transform, opacity;
+}
+
+.tech-card,
+.card {
+  will-change: auto;
+}
+
+.tech-card:hover,
+.card:hover {
+  will-change: transform;
+}
+
 section {
   width: 100dvw;
 }
