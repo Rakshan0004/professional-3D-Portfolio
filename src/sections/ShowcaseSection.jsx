@@ -10,6 +10,8 @@ const AppShowcase = () => {
   const rydeRef = useRef(null);
   const libraryRef = useRef(null);
   const ycDirectoryRef = useRef(null);
+  const immigrationRef = useRef(null);
+  const surveyRef = useRef(null);
 
   useGSAP(() => {
     // Animation for the main section
@@ -20,9 +22,16 @@ const AppShowcase = () => {
     );
 
     // Animations for each app showcase
-    const cards = [rydeRef.current, libraryRef.current, ycDirectoryRef.current];
+    const cards = [
+      rydeRef.current,
+      libraryRef.current,
+      ycDirectoryRef.current,
+      immigrationRef.current,
+      surveyRef.current
+    ];
 
     cards.forEach((card, index) => {
+      if (!card) return;
       gsap.fromTo(
         card,
         {
@@ -33,7 +42,7 @@ const AppShowcase = () => {
           y: 0,
           opacity: 1,
           duration: 1,
-          delay: 0.3 * (index + 1),
+          delay: 0.1 * (index + 1),
           scrollTrigger: {
             trigger: card,
             start: "top bottom-=100",
@@ -49,9 +58,9 @@ const AppShowcase = () => {
         <div className="showcaselayout">
           <div ref={rydeRef} className="first-project-wrapper">
             <div className="image-wrapper">
-              <img 
-                src="/images/projectEC.png" 
-                alt="E-commerce Platform" 
+              <img
+                src="/images/projectEC.png"
+                alt="E-commerce Platform"
                 loading="lazy"
                 decoding="async"
               />
@@ -81,14 +90,49 @@ const AppShowcase = () => {
 
             <div className="project" ref={ycDirectoryRef}>
               <div className="image-wrapper bg-[#EAF3FF]">
-                <img 
-                  src="/images/ai-agent.png" 
-                  alt="Customizable AI Agent" 
+                <img
+                  src="/images/ai-agent.png"
+                  alt="Customizable AI Agent"
                   loading="lazy"
                   decoding="async"
                 />
               </div>
               <h2>Customizable AI Agent (RAG & Tools)</h2>
+            </div>
+          </div>
+        </div>
+
+        {/* New Projects Row */}
+        <div className="mt-20 xl:w-[82%] mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-24">
+            <div className="project new-project" ref={immigrationRef}>
+              <div className="image-wrapper rounded-xl overflow-hidden relative">
+                <img
+                  src="/images/immigration_website.png"
+                  alt="Qontact — Global Immigration Consulting Platform"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <h2 className="text-lg md:text-xl lg:text-2xl font-semibold mt-5 text-white">
+                Qontact — Global Immigration Consulting Platform
+              </h2>
+            </div>
+
+            <div className="project new-project" ref={surveyRef}>
+              <div className="image-wrapper rounded-xl overflow-hidden relative">
+                <img
+                  src="/images/survay_website (1).png"
+                  alt="Kmpleet — Robust Data Collection & Analytics App"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <h2 className="text-lg md:text-xl lg:text-2xl font-semibold mt-5 text-white">
+                Kmpleet — Robust Data Collection & Analytics App
+              </h2>
             </div>
           </div>
         </div>

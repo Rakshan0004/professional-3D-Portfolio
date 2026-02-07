@@ -9,11 +9,22 @@ const Contact = () => {
   const sectionRef = useRef(null);
   const [loading, setLoading] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [success, setSuccess] = useState(false);
   const [form, setForm] = useState({
     user_name: "",
     user_email: "",
     message: "",
   });
+
+  // Handle success timeout
+  useEffect(() => {
+    if (success) {
+      const timeout = setTimeout(() => {
+        setSuccess(false);
+      }, 5000);
+      return () => clearTimeout(timeout);
+    }
+  }, [success]);
 
   // Intersection Observer for lazy loading 3D scene
   useEffect(() => {
@@ -46,9 +57,8 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true); // Show loading state
+    setLoading(true);
 
-    // EmailJS configuration
     const serviceId = import.meta.env.VITE_APP_EMAILJS_SERVICE_ID || "service_lye51d1";
     const templateId = import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID || "template_wjbwf2o";
     const publicKey = import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY || "7PfPCTSnd4gZ-Mgkk";
@@ -61,12 +71,12 @@ const Contact = () => {
         publicKey
       );
 
-      // Reset form and stop loading
+      setSuccess(true);
       setForm({ user_name: "", user_email: "", message: "" });
     } catch (error) {
-      console.error("EmailJS Error:", error); // Optional: show toast
+      console.error("EmailJS Error:", error);
     } finally {
-      setLoading(false); // Always stop loading, even on error
+      setLoading(false);
     }
   };
 
@@ -78,64 +88,83 @@ const Contact = () => {
           sub="💬 Have questions or ideas? Let's talk! 🚀"
         />
         <div className="grid-12-cols mt-16">
-          <div className="xl:col-span-5">
-            <div className="flex-center card-border rounded-xl p-10">
-              <form
-                ref={formRef}
-                onSubmit={handleSubmit}
-                className="w-full flex flex-col gap-7"
-              >
-                <div>
-                  <label htmlFor="user_name">Your name</label>
-                  <input
-                    type="text"
-                    id="user_name"
-                    name="user_name"
-                    value={form.user_name}
-                    onChange={handleChange}
-                    placeholder="What's your good name?"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="user_email">Your Email</label>
-                  <input
-                    type="email"
-                    id="user_email"
-                    name="user_email"
-                    value={form.user_email}
-                    onChange={handleChange}
-                    placeholder="What's your email address?"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="message">Your Message</label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={form.message}
-                    onChange={handleChange}
-                    placeholder="How can I help you?"
-                    rows="5"
-                    required
-                  />
-                </div>
-
-                <button type="submit">
-                  <div className="cta-button group">
-                    <div className="bg-circle" />
-                    <p className="text">
-                      {loading ? "Sending..." : "Send Message"}
-                    </p>
-                    <div className="arrow-wrapper">
-                      <img src="/images/arrow-down.svg" alt="arrow" />
-                    </div>
+          <div className="xl:col-span-5 min-h-[500px]">
+            <div className="flex-center card-border rounded-xl p-10 h-full relative overflow-hidden">
+              {/* Form UI */}
+              <div className={`w-full transition-all duration-500 ${success ? 'opacity-0 scale-95 pointer-events-none' : 'opacity-100 scale-100'}`}>
+                <form
+                  ref={formRef}
+                  onSubmit={handleSubmit}
+                  className="w-full flex flex-col gap-7"
+                >
+                  <div>
+                    <label htmlFor="user_name">Your name</label>
+                    <input
+                      type="text"
+                      id="user_name"
+                      name="user_name"
+                      value={form.user_name}
+                      onChange={handleChange}
+                      placeholder="What's your good name?"
+                      required
+                    />
                   </div>
-                </button>
-              </form>
+
+                  <div>
+                    <label htmlFor="user_email">Your Email</label>
+                    <input
+                      type="email"
+                      id="user_email"
+                      name="user_email"
+                      value={form.user_email}
+                      onChange={handleChange}
+                      placeholder="What's your email address?"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="message">Your Message</label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      value={form.message}
+                      onChange={handleChange}
+                      placeholder="How can I help you?"
+                      rows="5"
+                      required
+                    />
+                  </div>
+
+                  <button type="submit">
+                    <div className="cta-button group">
+                      <div className="bg-circle" />
+                      <p className="text">
+                        {loading ? "Sending..." : "Send Message"}
+                      </p>
+                      <div className="arrow-wrapper">
+                        <img src="/images/arrow-down.svg" alt="arrow" />
+                      </div>
+                    </div>
+                  </button>
+                </form>
+              </div>
+
+              {/* Success UI */}
+              <div className={`absolute inset-0 flex-col-center gap-5 p-10 transition-all duration-500 ${success ? 'opacity-100 scale-100' : 'opacity-0 scale-110 pointer-events-none'}`}>
+                <div className="success-checkmark">
+                  <div className="check-icon">
+                    <span className="icon-line line-tip"></span>
+                    <span className="icon-line line-long"></span>
+                    <div className="icon-circle"></div>
+                    <div className="icon-fix"></div>
+                  </div>
+                </div>
+                <h3 className="text-3xl font-bold text-white text-center">Success!</h3>
+                <p className="text-white-50 text-center text-lg">
+                  Your message has been sent successfully. I'll get back to you soon!
+                </p>
+              </div>
             </div>
           </div>
           <div className="xl:col-span-7 min-h-96">

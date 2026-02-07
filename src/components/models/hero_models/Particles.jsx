@@ -19,22 +19,34 @@ const Particles = ({ count = 200 }) => {
     return temp;
   }, [count]);
 
-  useFrame(() => {
-    const positions = mesh.current.geometry.attributes.position.array;
-    for (let i = 0; i < count; i++) {
-      let y = positions[i * 3 + 1];
-      y -= particles[i].speed;
-      if (y < -2) y = Math.random() * 10 + 5;
-      positions[i * 3 + 1] = y;
-    }
-    mesh.current.geometry.attributes.position.needsUpdate = true;
-  });
+  const positions = useMemo(() => {
+    const pos = new Float32Array(count * 3);
+    particles.forEach((p, i) => {
+      pos[i * 3] = p.position[0];
+      pos[i * 3 + 1] = p.position[1];
+      pos[i * 3 + 2] = p.position[2];
+    });
+    return pos;
+  }, [particles, count]);
 
-  const positions = new Float32Array(count * 3);
-  particles.forEach((p, i) => {
-    positions[i * 3] = p.position[0];
-    positions[i * 3 + 1] = p.position[1];
-    positions[i * 3 + 2] = p.position[2];
+  useFrame((state, delta) => {
+    if (!mesh.current) return;
+
+    const attr = mesh.current.geometry.attributes.position;
+    const array = attr.array;
+
+    for (let i = 0; i < count; i++) {
+      const idx = i * 3 + 1;
+      let y = array[idx];
+      // Use delta for frame-independent movement
+      y -= particles[i].speed * (delta * 60);
+
+      if (y < -2) {
+        y = 15; // Reset to top
+      }
+      array[idx] = y;
+    }
+    attr.needsUpdate = true;
   });
 
   return (

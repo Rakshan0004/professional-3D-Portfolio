@@ -33,8 +33,8 @@ const words = [
 ];
 
 const counterItems = [
-  { value: 6, suffix: "+", label: "Months of Experience" },
-  { value: 3, suffix: "+", label: "Projects Completed" },
+  { value: 12, suffix: "+", label: "Months of Experience" },
+  { value: 6, suffix: "+", label: "Projects Completed" },
   { value: 5, suffix: "+", label: "Technologies Mastered" },
   { value: 100, suffix: "%", label: "Commitment to Quality" },
 ];
