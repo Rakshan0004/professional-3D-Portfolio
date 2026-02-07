@@ -19,9 +19,9 @@ const Hero = () => {
   return (
     <section id="hero" className="relative overflow-hidden">
       <div className="absolute top-0 left-0 z-10">
-        <img 
-          src="/images/bg.png" 
-          alt="" 
+        <img
+          src="/images/bg.png"
+          alt=""
           loading="eager"
           decoding="async"
         />
@@ -62,15 +62,15 @@ const Hero = () => {
               building innovative solutions.
             </p>
 
-            <div className="flex flex-col md:flex-row gap-4 md:gap-6">
+            <div className="flex flex-row items-center gap-3 md:gap-6 pointer-events-auto">
               <Button
                 text="See My Work"
-                className="md:w-80 md:h-16 w-60 h-12"
+                className="md:w-80 md:h-16 w-44 h-12"
                 id="counter"
               />
-              
+
               <ResumeButton
-                className="md:w-48 md:h-14 w-40 h-10"
+                className="md:w-48 md:h-16 w-32 h-12"
               />
             </div>
           </div>

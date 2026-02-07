@@ -12,11 +12,12 @@ const HeroExperience = () => {
   const isTablet = useMediaQuery({ query: "(max-width: 1024px)" });
 
   return (
-    <Canvas 
+    <Canvas
       camera={{ position: [0, 0, 15], fov: 45 }}
       dpr={[1, 1.5]} // Limit pixel ratio for performance
       performance={{ min: 0.5 }} // Allow framerate to drop to maintain performance
-      gl={{ 
+      style={{ touchAction: 'pan-y' }}
+      gl={{
         antialias: !isMobile, // Disable antialiasing on mobile
         powerPreference: "high-performance",
         alpha: true,
