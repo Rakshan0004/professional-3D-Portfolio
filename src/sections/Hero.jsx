@@ -85,6 +85,14 @@ const Hero = () => {
       </div>
 
       <AnimatedCounter />
+
+      {/* Mobile Scroll Helper: Explicit track on the right to navigate past 3D model */}
+      <div className="md:hidden absolute right-0 top-0 w-12 h-screen z-[100] pointer-events-none flex flex-col justify-center items-center">
+        <div className="w-1.5 h-32 bg-white/10 rounded-full relative pointer-events-auto touch-pan-y">
+          <div className="absolute top-0 left-0 w-full h-1/2 bg-white/40 rounded-full animate-scroll-slider" />
+        </div>
+        <p className="text-[10px] text-white/40 uppercase vertical-text mt-4">Scroll Down</p>
+      </div>
     </section>
   );
 };
