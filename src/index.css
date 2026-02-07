@@ -230,6 +230,29 @@ section {
     }
   }
 
+  .resume-button-wrapper {
+    @apply relative z-20 cursor-pointer;
+  }
+
+  .resume-button {
+    @apply px-4 py-3 rounded-lg flex justify-center items-center gap-2 relative cursor-pointer
+           transition-all duration-300 hover:scale-105 font-semibold uppercase
+           bg-white hover:bg-gray-100 text-black border-2 border-gray-200 hover:border-gray-300
+           shadow-lg hover:shadow-xl;
+
+    .text {
+      @apply md:text-base text-sm text-black transition-all duration-300;
+    }
+
+    .resume-icon-wrapper {
+      @apply flex justify-center items-center;
+      
+      .resume-icon {
+        @apply text-black w-5 h-5 md:w-6 md:h-6;
+      }
+    }
+  }
+
   .card-border {
     @apply border border-black-50 bg-black-100;
   }
