@@ -151,18 +151,37 @@ const techStackIcons = [
 
 const expCards = [
   {
-    review: "Rakshan's expertise in Next.js and FastAPI development has been outstanding. His ability to build scalable web applications and implement automated testing pipelines has significantly improved our development workflow.",
+    review: "At Pluto Rides, I contributed to the development of cross-platform mobility applications and backend infrastructure supporting ride management and real-time driver operations.",
+    imgPath: "/images/exp3.png",
+    logoPath: "/images/logo3.png",
+    title: "Full Stack Developer",
+    company: "Pluto Rides",
+    date: "Dec 2025 - Feb 2026",
+    location: "Bengaluru, India",
+    responsibilities: [
+      "Contributed to cross-platform mobile application development using Kotlin Multiplatform (KMP) and Compose Multiplatform (CMP) for shared business logic across iOS and Android",
+      "Developed serverless backend APIs on AWS using Lambda and API Gateway to support ride and driver management workflows",
+      "Worked on PostgreSQL schema design for ride matching, driver tracking, and transaction management systems",
+      "Implemented real-time location tracking and Firebase Cloud Messaging (FCM) push notifications in customer and driver applications",
+      "Built a full-featured admin panel from scratch covering ride monitoring, driver verification, analytics, and operational controls",
+      "Implemented authentication and role-based authorization flows for customers, drivers, and administrators to ensure secure access management",
+    ],
+  },
+  {
+    review: "At Qontact, I worked on building intelligent, data-driven web applications from scratch, contributing across frontend, backend, automation pipelines, and AI-powered features.",
     imgPath: "/images/exp1.png",
     logoPath: "/images/logo1.png",
-    title: "Software Development Engineer",
+    title: "Full Stack Developer",
     company: "QONTACT",
-    date: "June 2025 - September 2025",
-    location: "Remote",
+    date: "June 2025 - Dec 2025",
+    location: "Toronto, Canada",
     responsibilities: [
-      "Developed web-app using Next.js and Express.js, improving application performance and user experience",
-      "Built web scraping solutions using Selenium and BeautifulSoup, automating data collection processes",
-      "Engineered REST APIs with FastAPI Python framework, ensuring scalable and efficient backend services",
-      "Implemented automated testing and deployment pipelines, reducing manual testing efforts and deployment time",
+      "Built a production-ready web application using Next.js 15 based on Figma designs, ensuring high performance and consistent cross-device user experience",
+      "Developed automated web scraping pipelines using FastAPI, Selenium, and BeautifulSoup, reducing manual data entry effort by 80%",
+      "Designed and implemented REST APIs using FastAPI to support business workflows and enable seamless frontend-backend communication",
+      "Created data transformation pipelines to convert scraped data into structured JSON schemas for downstream integrations",
+      "Integrated a Retrieval-Augmented Generation (RAG) based AI chatbot using LLM APIs and Pinecone vector database for context-aware responses from indexed documents",
+      "Participated in technical discussions and code reviews to maintain code quality and ensure timely delivery of features",
     ],
   },
   {
@@ -184,6 +203,10 @@ const expCards = [
 ];
 
 const expLogos = [
+  {
+    name: "pluto rides",
+    imgPath: "/images/logo3.png",
+  },
   {
     name: "qontact",
     imgPath: "/images/logo1.png",
