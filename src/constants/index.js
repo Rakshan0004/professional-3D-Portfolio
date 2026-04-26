@@ -1,15 +1,15 @@
 const navLinks = [
   {
-    name: "Work",
-    link: "#work",
-  },
-  {
     name: "Experience",
     link: "#experience",
   },
   {
-    name: "Education",
-    link: "#education",
+    name: "Work",
+    link: "#work",
+  },
+  {
+    name: "Live",
+    link: "#live-projects",
   },
   {
     name: "Skills",
@@ -306,6 +306,123 @@ const educationData = [
   },
 ];
 
+const projects = [
+  {
+    id: "ecommerce",
+    title: "Full-Stack E-Commerce Platform",
+    description:
+      "A comprehensive e-commerce solution with product catalog, user auth, cart, and payment gateway integration. Built with Java 17, Spring Boot 3.3.3, MySQL, and Flyway migrations.",
+    image: "/images/projectEC.png",
+    tags: ["Spring Boot", "Java 17", "MySQL", "Flyway", "REST API"],
+    githubUrl: "https://github.com/Rakshan0004",
+    demoUrl: null,
+    featured: true,
+  },
+  {
+    id: "blockvote",
+    title: "BlockVote — Decentralized Voting",
+    description:
+      "A blockchain-based voting platform ensuring transparent, tamper-proof elections with smart contracts and a modern React frontend.",
+    image: "/images/block.png",
+    tags: ["Blockchain", "Solidity", "React", "Web3.js"],
+    githubUrl: "https://github.com/Rakshan0004",
+    demoUrl: null,
+    featured: false,
+  },
+  {
+    id: "ai-agent",
+    title: "Customizable AI Agent",
+    description:
+      "A RAG-powered AI agent with tool-use capabilities. Connects to a Pinecone vector database for context-aware responses from custom document sets.",
+    image: "/images/ai-agent.png",
+    tags: ["Python", "LangChain", "Pinecone", "FastAPI", "RAG"],
+    githubUrl: "https://github.com/Rakshan0004",
+    demoUrl: null,
+    featured: false,
+  },
+  {
+    id: "immigration",
+    title: "Qontact — Immigration Consulting",
+    description:
+      "A production-ready Next.js 15 web application for a global immigration consulting firm, built from Figma designs with a FastAPI backend and AI chatbot.",
+    image: "/images/immigration_website.png",
+    tags: ["Next.js 15", "FastAPI", "RAG", "Selenium", "Vercel"],
+    githubUrl: "https://github.com/Rakshan0004",
+    demoUrl: null,
+    featured: false,
+  },
+  {
+    id: "kmpleet-survey",
+    title: "Kmpleet — Data Collection App",
+    description:
+      "Full-stack SaaS data collection and analytics platform with dynamic survey builder, real-time analytics dashboard, and AI-powered chatbot assistance.",
+    image: "/images/survay_website (1).png",
+    tags: ["Next.js", "FastAPI", "PostgreSQL", "AI/RAG", "Pinecone"],
+    githubUrl: "https://github.com/Rakshan0004",
+    demoUrl: "https://kmpleet.com/",
+    featured: false,
+  },
+];
+
+const liveProjects = [
+  {
+    id: "kmpleet",
+    title: "Kmpleet",
+    tagline: "Robust Data Collection & Analytics Platform",
+    description:
+      "A full-stack SaaS platform for data collection, survey management, and analytics. Built production-ready with Next.js 15, AI-powered chatbot (RAG + Pinecone), and FastAPI backend.",
+    image: "/images/live-kmpleet.png",
+    tags: ["Next.js 15", "FastAPI", "PostgreSQL", "RAG / AI", "Pinecone"],
+    links: [
+      { label: "Main App", url: "https://kmpleet.com/", icon: "globe" },
+      {
+        label: "Admin Panel",
+        url: "https://staging.admin.kmpleet.com/login",
+        icon: "admin",
+        note: "Login required",
+      },
+    ],
+    featured: true,
+  },
+  {
+    id: "plutorides",
+    title: "Pluto Rides",
+    tagline: "Cross-Platform Ride Mobility Ecosystem",
+    description:
+      "End-to-end ride mobility solution — cross-platform mobile app (iOS & Android), admin dashboard, and marketing website. Built with KMP, AWS Lambda, and Firebase.",
+    image: "/images/live-plutorides.png",
+    tags: ["Kotlin Multiplatform", "AWS Lambda", "PostgreSQL", "Firebase", "FCM"],
+    links: [
+      { label: "Website", url: "https://plutorides.com/", icon: "globe" },
+      { label: "Admin Panel", url: "https://admin.plutorides.com/", icon: "admin" },
+      {
+        label: "Play Store",
+        url: "https://play.google.com/store/apps/details?id=com.pluto.rides&hl=en_IN",
+        icon: "android",
+      },
+      {
+        label: "App Store",
+        url: "https://apps.apple.com/in/app/pluto-reliable-commute/id6757488243",
+        icon: "apple",
+      },
+    ],
+    featured: false,
+  },
+  {
+    id: "letxt",
+    title: "LetXT Enterprises",
+    tagline: "Corporate Landing Page",
+    description:
+      "A freelance project — high-performance, responsive corporate landing page. Deployed on Vercel with CI/CD, optimized for SEO and cross-device experience.",
+    image: "/images/live-letxt.png",
+    tags: ["React.js", "Vercel", "CI/CD", "SEO"],
+    links: [
+      { label: "Live Site", url: "https://letxenterprises.com/", icon: "globe" },
+    ],
+    featured: false,
+  },
+];
+
 export {
   words,
   abilities,
@@ -319,4 +436,6 @@ export {
   techStackImgs,
   navLinks,
   educationData,
+  liveProjects,
+  projects,
 };
