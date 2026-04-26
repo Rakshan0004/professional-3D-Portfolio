@@ -10,6 +10,7 @@ const ContactExperience = () => {
 
   return (
     <Canvas 
+      frameloop="demand"
       shadows={!isMobile} // Disable shadows on mobile
       camera={{ position: [0, 3, 7], fov: 45 }}
       dpr={[1, 1.5]}

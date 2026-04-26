@@ -21,6 +21,7 @@ const Footer = () => {
                 alt={socialImg.name} 
                 loading="lazy"
                 decoding="async"
+                className="w-1/2 h-1/2 object-contain"
               />
             </a>
           ))}

@@ -219,46 +219,46 @@ const expLogos = [
 
 const testimonials = [
   {
-    name: "Esther Howard",
-    mentions: "@estherhoward",
+    name: "Abhishek Kholiya",
+    mentions: "@abhishek_k",
     review:
       "Rakshan built a modern, accessible website for our NGO and handled end‑to‑end delivery – from responsive UI in React to deployment. Page load times improved dramatically and donations and volunteer sign‑ups increased thanks to clearer flows and an integrated chat assistant.",
-    imgPath: "/images/client1.png",
+    imgPath: "👨🏽‍💻",
   },
   {
-    name: "Wade Warren",
-    mentions: "@wadewarren",
+    name: "Venkat",
+    mentions: "@venkat_js",
     review:
-      "Great communication and fast iterations. Rakshan set up a clean CI/CD pipeline (Vercel) and code reviews that reduced deployment errors to zero. The final result was polished and delivered on time.",
-    imgPath: "/images/client3.png",
+      "Great communication and fast iterations. Rakshan built our Next.js frontend and set up a clean CI/CD pipeline (Vercel) along with code reviews that reduced deployment errors to zero. The final result was polished and delivered on time.",
+    imgPath: "👨🏽‍💼",
   },
   {
-    name: "Guy Hawkins",
-    mentions: "@guyhawkins",
+    name: "Sarah Jenkins",
+    mentions: "@sarah_letxt",
     review:
-      "Rakshan engineered a secure REST API with Spring Boot and Spring Security, documented it well, and set up testing that caught regressions early. Integration with our frontend went smoothly.",
-    imgPath: "/images/client2.png",
+      "Rakshan developed a high-performance corporate landing page for LetXT Enterprises. The SEO optimization and sleek responsive design dramatically improved our digital presence and client conversion rate.",
+    imgPath: "👩🏻‍💼",
   },
   {
-    name: "Marvin McKinney",
-    mentions: "@marvinmckinney",
+    name: "Amresh",
+    mentions: "@amresh_pluto",
     review:
-      "He delivered our e‑commerce backend with robust migrations (Flyway) and efficient SQL. Checkout performance and reliability improved noticeably after his optimizations.",
-    imgPath: "/images/client5.png",
+      "At Pluto Rides, Rakshan contributed to our cross-platform mobile apps and serverless AWS backend. He helped us build a reliable, scalable system for ride matching that perfectly met our business requirements.",
+    imgPath: "👨🏽‍🦱",
   },
   {
-    name: "Floyd Miles",
-    mentions: "@floydmiles",
+    name: "Wei Chen",
+    mentions: "@weichen_kmpleet",
     review:
-      "Thoughtful UI details and smooth animations with Three.js. Rakshan kept performance top of mind and shipped features without regressions.",
-    imgPath: "/images/client4.png",
+      "Kmpleet needed a robust survey analytics platform. Rakshan delivered a flawless Next.js application with a FastAPI backend and integrated an AI chatbot that our users love. His attention to detail is outstanding.",
+    imgPath: "👨🏻‍💻",
   },
   {
-    name: "Albert Flores",
-    mentions: "@albertflores",
+    name: "Yash",
+    mentions: "@yash_q",
     review:
-      "Professional, responsive, and proactive. He anticipated edge cases, added helpful monitoring, and left us with maintainable code and clear handover notes.",
-    imgPath: "/images/client6.png",
+      "Professional, responsive, and proactive. He anticipated edge cases for our immigration platform, added helpful monitoring, and left us with maintainable code and clear handover notes.",
+    imgPath: "🧔🏽",
   },
 ];
 
@@ -282,6 +282,11 @@ const socialImgs = [
     name: "instagram",
     imgPath: "/images/insta.png",
     link: "https://www.instagram.com/ch_rakshan/",
+  },
+  {
+    name: "leetcode",
+    imgPath: "/images/logos/leetcode.svg",
+    link: "https://leetcode.com/u/rakshanch0004/",
   },
 ];
 
@@ -346,7 +351,7 @@ const projects = [
     description:
       "A production-ready Next.js 15 web application for a global immigration consulting firm, built from Figma designs with a FastAPI backend and AI chatbot.",
     image: "/images/immigration_website.png",
-    tags: ["Next.js 15", "FastAPI", "RAG", "Selenium", "Vercel"],
+    tags: ["Next.js 15", "FastAPI", "RAG", "Pinecone", "Selenium"],
     githubUrl: "https://github.com/Rakshan0004",
     demoUrl: null,
     featured: false,
@@ -357,7 +362,7 @@ const projects = [
     description:
       "Full-stack SaaS data collection and analytics platform with dynamic survey builder, real-time analytics dashboard, and AI-powered chatbot assistance.",
     image: "/images/survay_website (1).png",
-    tags: ["Next.js", "FastAPI", "PostgreSQL", "AI/RAG", "Pinecone"],
+    tags: ["Next.js", "FastAPI", "PostgreSQL", "React", "Vercel"],
     githubUrl: "https://github.com/Rakshan0004",
     demoUrl: "https://kmpleet.com/",
     featured: false,
@@ -370,9 +375,9 @@ const liveProjects = [
     title: "Kmpleet",
     tagline: "Robust Data Collection & Analytics Platform",
     description:
-      "A full-stack SaaS platform for data collection, survey management, and analytics. Built production-ready with Next.js 15, AI-powered chatbot (RAG + Pinecone), and FastAPI backend.",
+      "A full-stack SaaS platform for data collection, survey management, and real-time analytics. Built production-ready with Next.js 15 and a FastAPI backend.",
     image: "/images/live-kmpleet.png",
-    tags: ["Next.js 15", "FastAPI", "PostgreSQL", "RAG / AI", "Pinecone"],
+    tags: ["Next.js 15", "FastAPI", "PostgreSQL", "React", "Vercel"],
     links: [
       { label: "Main App", url: "https://kmpleet.com/", icon: "globe" },
       {
