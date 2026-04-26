@@ -2,12 +2,9 @@ import { socialImgs } from "../constants";
 
 const Footer = () => {
   return (
-    <footer className="footer">
-      <div className="footer-container">
-        <div className="flex flex-col justify-center">
-          <p>Terms & Conditions</p>
-        </div>
-        <div className="socials">
+    <footer className="footer pb-10">
+      <div className="w-full flex flex-col items-center justify-center gap-8">
+        <div className="socials flex items-center justify-center gap-5">
           {socialImgs.map((socialImg, index) => (
             <a 
               key={index} 
@@ -26,11 +23,9 @@ const Footer = () => {
             </a>
           ))}
         </div>
-        <div className="flex flex-col justify-center">
-          <p className="text-center md:text-end">
-            © {new Date().getFullYear()} Rakshan Chintala. All rights reserved.
-          </p>
-        </div>
+        <p className="text-white-50 text-center">
+          © {new Date().getFullYear()} Rakshan Chintala
+        </p>
       </div>
     </footer>
   );

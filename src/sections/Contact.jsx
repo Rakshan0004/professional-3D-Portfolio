@@ -150,17 +150,15 @@ const Contact = () => {
 
                   <div className="flex items-center justify-center gap-3 w-full mt-2">
                     <div className="h-[1px] w-full bg-white/10" />
-                    <span className="text-white-50 whitespace-nowrap text-sm">Or email directly</span>
+                    <span className="text-white-50 whitespace-nowrap text-sm">Or</span>
                     <div className="h-[1px] w-full bg-white/10" />
                   </div>
 
                   <a 
                     href="mailto:rakshanch0004@gmail.com" 
-                    className="flex-center gap-3 w-full py-3 px-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition-colors"
+                    className="flex-center w-full py-3 px-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition-colors"
                   >
-                    <img src="/images/logos/mail.svg" alt="email" className="w-6 h-6" onError={(e) => { e.target.style.display='none'; e.target.nextSibling.style.display='inline'; }} />
-                    <span className="text-xl hidden">✉️</span>
-                    <span className="text-white font-medium">Email Me Directly</span>
+                    <img src="/images/logos/gmail.svg" alt="Gmail" className="w-8 h-8" />
                   </a>
                 </form>
               </div>
