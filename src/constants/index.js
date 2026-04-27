@@ -384,7 +384,6 @@ const liveProjects = [
         label: "Admin Panel",
         url: "https://staging.admin.kmpleet.com/login",
         icon: "admin",
-        note: "Login required",
       },
     ],
     featured: true,
