@@ -156,7 +156,7 @@ const expCards = [
     logoPath: "/images/logo3.png",
     title: "Full Stack Developer",
     company: "Pluto Rides",
-    date: "Dec 2025 - Feb 2026",
+    date: "Jan 2026 - March 2026",
     location: "Bengaluru, India",
     responsibilities: [
       "Contributed to cross-platform mobile application development using Kotlin Multiplatform (KMP) and Compose Multiplatform (CMP) for shared business logic across iOS and Android",
@@ -173,7 +173,7 @@ const expCards = [
     logoPath: "/images/logo1.png",
     title: "Full Stack Developer",
     company: "QONTACT",
-    date: "June 2025 - Dec 2025",
+    date: "May 2025 - Dec 2025",
     location: "Toronto, Canada",
     responsibilities: [
       "Built a production-ready web application using Next.js 15 based on Figma designs, ensuring high performance and consistent cross-device user experience",
