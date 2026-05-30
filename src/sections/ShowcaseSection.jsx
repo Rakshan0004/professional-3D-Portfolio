@@ -35,7 +35,7 @@ const ProjectCard = ({ project, index, cardRef, featured }) => (
     }`}
   >
     {/* Image */}
-    <div className={`relative overflow-hidden ${featured ? "h-40 md:h-48" : "h-32 md:h-40"}`}>
+    <div className={`relative overflow-hidden ${featured ? "h-52 md:h-64" : "h-44 md:h-52"}`}>
       <img
         src={project.image}
         alt={project.title}
