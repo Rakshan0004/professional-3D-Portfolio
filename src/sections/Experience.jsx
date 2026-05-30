@@ -83,15 +83,15 @@ const Experience = () => {
   return (
     <section
       id="experience"
-      className="flex-center md:mt-40 mt-20 section-padding xl:px-0"
+      className="flex-center md:mt-24 mt-12 section-padding xl:px-0"
     >
       <div className="w-full h-full md:px-20 px-5">
         <TitleHeader
           title="Professional Work Experience"
           sub="💼 My Career Overview"
         />
-        <div className="mt-32 relative">
-          <div className="relative z-50 xl:space-y-32 space-y-10">
+        <div className="mt-16 relative">
+          <div className="relative z-50 xl:space-y-16 space-y-8">
             {expCards.map((card) => (
               <div key={card.title} className="exp-card-wrapper">
                 <div className="xl:w-2/6">
@@ -114,21 +114,21 @@ const Experience = () => {
                         />
                       </div>
                       <div>
-                        <h1 className="font-semibold text-3xl">{card.title}</h1>
-                        <p className="text-xl text-white-50 font-medium">{card.company}</p>
-                        <p className="my-5 text-white-50">
+                        <h1 className="font-semibold text-2xl md:text-3xl">{card.title}</h1>
+                        <p className="text-lg md:text-xl text-white-50 font-medium">{card.company}</p>
+                        <p className="my-3 text-white-50">
                           🗓️&nbsp;{card.date}
                         </p>
-                        <p className="text-white-50 mb-5">
+                        <p className="text-white-50 mb-3 font-medium">
                           📍&nbsp;{card.location}
                         </p>
                         <p className="text-[#839CB5] italic">
                           Responsibilities
                         </p>
-                        <ul className="list-disc ms-5 mt-5 flex flex-col gap-5 text-white-50">
+                        <ul className="list-disc ms-5 mt-3 flex flex-col gap-2 text-white-50">
                           {card.responsibilities.map(
                             (responsibility, index) => (
-                              <li key={index} className="text-lg">
+                              <li key={index} className="text-sm md:text-base">
                                 {responsibility}
                               </li>
                             )

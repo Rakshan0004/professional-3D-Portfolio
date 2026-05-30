@@ -79,11 +79,11 @@ section {
   }
 
   .section-padding {
-    @apply px-5 md:px-10 md:mt-40 mt-20;
+    @apply px-5 md:px-10 md:mt-24 mt-12;
   }
 
   .mt-responsive {
-    @apply xl:mt-20 md:mt-0 mt-40;
+    @apply xl:mt-20 md:mt-0 mt-20;
   }
 
   /* General Grids */
@@ -250,26 +250,39 @@ section {
   }
 
   .cta-button {
-    @apply h-full w-full rounded-lg bg-black-200 flex justify-center items-center gap-2 relative cursor-pointer overflow-hidden transition-all duration-500;
+    @apply h-full w-full rounded-lg bg-black-200 flex justify-center items-center gap-2 relative cursor-pointer overflow-hidden transition-all duration-500 border border-white/10;
 
-    .bg-circle {
-      @apply absolute right-0 origin-center top-1/2 -translate-y-1/2 size-0 rounded-full bg-white-50 transition-all duration-500;
+    &::before {
+      content: "";
+      @apply absolute inset-0 bg-gradient-to-r from-orange-600 to-orange-500 rounded-lg;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
     }
 
-    &:hover .bg-circle {
-      @apply size-[300%] -right-1/2;
+    &:hover::before {
+      transform: scaleX(1);
+    }
+
+    &:hover {
+      @apply scale-[1.02] border-orange-500/30;
+      box-shadow: 0 0 20px rgba(234, 88, 12, 0.4);
     }
 
     .text {
-      @apply uppercase md:text-lg text-xs text-white z-10 transition-all duration-500 group-hover:text-black font-semibold;
+      @apply relative z-10 uppercase md:text-lg text-xs text-white transition-colors duration-300 font-semibold;
     }
 
     .arrow-wrapper {
-      @apply size-10 rounded-full flex justify-center items-center overflow-hidden z-10 transition-all duration-500;
+      @apply relative z-10 size-10 rounded-full flex justify-center items-center overflow-hidden transition-all duration-300;
 
       img {
-        @apply size-5 animate-bounce transition-all duration-500 group-hover:invert;
+        @apply size-5 transition-transform duration-300 -translate-y-[2px];
       }
+    }
+
+    &:hover .arrow-wrapper img {
+      @apply translate-y-[2px];
     }
   }
 
@@ -278,18 +291,40 @@ section {
   }
 
   .resume-button {
-    @apply h-full w-full rounded-lg flex justify-center items-center gap-2 relative cursor-pointer transition-all duration-300 hover:scale-105 font-medium uppercase bg-white hover:bg-gray-100 text-black shadow-sm;
+    @apply h-full w-full rounded-lg bg-black-200 flex justify-center items-center gap-2 relative cursor-pointer overflow-hidden transition-all duration-500 border border-white/10;
+    animation: resumeGlow 3s ease-in-out infinite alternate;
+
+    &::before {
+      content: "";
+      @apply absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    &:hover::before {
+      transform: scaleX(1);
+    }
+
+    &:hover {
+      @apply scale-[1.02] border-blue-500/30;
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+    }
 
     .text {
-      @apply md:text-base text-[10px] text-black transition-all duration-300;
+      @apply relative z-10 uppercase md:text-base text-[10px] text-white transition-colors duration-300 font-semibold;
     }
 
     .resume-icon-wrapper {
-      @apply flex justify-center items-center;
+      @apply relative z-10 flex justify-center items-center;
 
       .resume-icon {
-        @apply text-black w-4 h-4 md:w-6 md:h-6;
+        @apply text-white w-4 h-4 md:w-5 md:h-5 transition-transform duration-300;
       }
+    }
+
+    &:hover .resume-icon {
+      @apply scale-110;
     }
   }
 
@@ -348,7 +383,7 @@ section {
 
     input,
     textarea {
-      @apply w-full px-4 py-4 md:text-base text-sm placeholder:text-blue-50 bg-blue-100 rounded-md;
+      @apply w-full px-4 py-3 md:text-base text-sm placeholder:text-blue-50 bg-blue-100 rounded-md;
     }
 
     a {
@@ -722,4 +757,14 @@ section {
 
 .animate-scroll-slider {
   animation: scroll-slider 2s ease-in-out infinite;
+}
+
+/* Resume button pulsing glow */
+@keyframes resumeGlow {
+  0% {
+    box-shadow: 0 0 6px rgba(59, 130, 246, 0.3), 0 0 2px rgba(99, 102, 241, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 16px rgba(59, 130, 246, 0.6), 0 0 8px rgba(99, 102, 241, 0.4);
+  }
 }

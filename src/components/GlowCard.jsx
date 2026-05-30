@@ -30,32 +30,32 @@ const GlowCard = ({ card, index, children, hFull }) => {
     <div
       ref={(el) => (cardRefs.current[index] = el)}
       onMouseMove={handleMouseMove(index)}
-      className={`card card-border timeline-card rounded-xl p-10 ${
-        hFull ? "flex flex-col justify-between h-full" : "mb-5 break-inside-avoid-column"
+      className={`card card-border timeline-card rounded-xl p-6 ${
+        hFull ? "flex flex-col justify-between h-full" : "mb-3 break-inside-avoid-column"
       }`}
     >
       <div className="glow"></div>
-      <div className="flex items-center gap-1 mb-5">
+      <div className="flex items-center gap-1 mb-3">
         {Array.from({ length: 5 }, (_, i) => (
           <img 
             key={i} 
             src="/images/star.png" 
             alt="star" 
-            className="size-5" 
+            className="size-4" 
             loading="lazy"
             decoding="async"
           />
         ))}
       </div>
-      <div className="mb-5">
-        <p className="text-white-50 text-lg">{card.review}</p>
+      <div className="mb-3">
+        <p className="text-white-50 text-sm md:text-base">{card.review}</p>
       </div>
       {card.company && (
         <div className="flex items-center gap-2">
-          <div className="size-8 bg-purple-500 rounded-full flex items-center justify-center">
-            <span className="text-white font-bold text-lg">{card.company.charAt(0)}</span>
+          <div className="size-7 bg-purple-500 rounded-full flex items-center justify-center">
+            <span className="text-white font-bold text-base">{card.company.charAt(0)}</span>
           </div>
-          <span className="text-white font-semibold text-lg">{card.company}</span>
+          <span className="text-white font-semibold text-base">{card.company}</span>
         </div>
       )}
       {children}

@@ -35,7 +35,7 @@ const ProjectCard = ({ project, index, cardRef, featured }) => (
     }`}
   >
     {/* Image */}
-    <div className={`relative overflow-hidden ${featured ? "h-72 md:h-96" : "h-52 md:h-60"}`}>
+    <div className={`relative overflow-hidden ${featured ? "h-40 md:h-48" : "h-32 md:h-40"}`}>
       <img
         src={project.image}
         alt={project.title}
@@ -174,7 +174,7 @@ const AppShowcase = () => {
   return (
     <section id="work" ref={sectionRef} className="section-padding">
       {/* Section Header */}
-      <div ref={titleRef} className="mb-14">
+      <div ref={titleRef} className="mb-8">
         <p className="text-white-50 text-base md:text-lg mb-3 uppercase tracking-widest font-medium">
           Selected Work
         </p>

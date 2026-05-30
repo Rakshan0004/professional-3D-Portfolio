@@ -89,13 +89,13 @@ const Contact = () => {
         />
         <div className="grid-12-cols mt-16">
           <div className="xl:col-span-5 min-h-[500px]">
-            <div className="flex-center card-border rounded-xl p-10 h-full relative overflow-hidden">
+            <div className="flex-center card-border rounded-xl p-6 h-full relative overflow-hidden">
               {/* Form UI */}
               <div className={`w-full transition-all duration-500 ${success ? 'opacity-0 scale-95 pointer-events-none' : 'opacity-100 scale-100'}`}>
                 <form
                   ref={formRef}
                   onSubmit={handleSubmit}
-                  className="w-full flex flex-col gap-7"
+                  className="w-full flex flex-col gap-4"
                 >
                   <div>
                     <label htmlFor="user_name">Your name</label>
@@ -131,14 +131,13 @@ const Contact = () => {
                       value={form.message}
                       onChange={handleChange}
                       placeholder="How can I help you?"
-                      rows="5"
+                      rows="3"
                       required
                     />
                   </div>
 
                   <button type="submit">
                     <div className="cta-button group">
-                      <div className="bg-circle" />
                       <p className="text">
                         {loading ? "Sending..." : "Send Message"}
                       </p>
@@ -147,19 +146,6 @@ const Contact = () => {
                       </div>
                     </div>
                   </button>
-
-                  <div className="flex items-center justify-center gap-3 w-full mt-2">
-                    <div className="h-[1px] w-full bg-white/10" />
-                    <span className="text-white-50 whitespace-nowrap text-sm">Or</span>
-                    <div className="h-[1px] w-full bg-white/10" />
-                  </div>
-
-                  <a 
-                    href="mailto:rakshanch0004@gmail.com" 
-                    className="flex-center w-full py-3 px-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition-colors"
-                  >
-                    <img src="/images/logos/gmail.svg" alt="Gmail" className="w-8 h-8" />
-                  </a>
                 </form>
               </div>
 

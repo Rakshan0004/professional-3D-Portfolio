@@ -75,7 +75,7 @@ const ProjectCard = ({ project, cardRef, featured }) => (
     }`}
   >
     {/* Screenshot */}
-    <div className={`relative overflow-hidden ${featured ? "h-64 md:h-80" : "h-52 md:h-60"}`}>
+    <div className={`relative overflow-hidden ${featured ? "h-40 md:h-48" : "h-32 md:h-40"}`}>
       <img
         src={project.image}
         alt={project.title}
@@ -181,7 +181,7 @@ const LiveProjects = () => {
   return (
     <section id="live-projects" ref={sectionRef} className="section-padding">
       {/* Section Header */}
-      <div ref={titleRef} className="text-center mb-14">
+      <div ref={titleRef} className="text-center mb-8">
         <div className="flex justify-center mb-4">
           <div className="flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full px-4 py-1.5">
             <span className="relative flex h-2 w-2">

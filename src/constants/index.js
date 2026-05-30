@@ -19,6 +19,10 @@ const navLinks = [
     name: "Testimonials",
     link: "#testimonials",
   },
+  {
+    name: "Links",
+    link: "#links",
+  },
 ];
 
 const words = [
@@ -33,7 +37,7 @@ const words = [
 ];
 
 const counterItems = [
-  { value: 12, suffix: "+", label: "Months of Experience" },
+  { value: 18, suffix: "+", label: "Months of Experience" },
   { value: 6, suffix: "+", label: "Projects Completed" },
   { value: 5, suffix: "+", label: "Technologies Mastered" },
   { value: 100, suffix: "%", label: "Commitment to Quality" },

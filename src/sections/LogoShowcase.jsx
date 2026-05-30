@@ -1,4 +1,5 @@
 import { logoIconsList } from "../constants";
+import useIntersectionObserver from "../hooks/useIntersectionObserver";
 
 const LogoIcon = ({ icon }) => {
   return (
@@ -8,28 +9,42 @@ const LogoIcon = ({ icon }) => {
         alt={icon.name} 
         loading="lazy"
         decoding="async"
+        className="h-10 w-auto object-contain"
       />
     </div>
   );
 };
 
-const LogoShowcase = () => (
-  <div className="md:my-20 my-10 relative">
-    <div className="gradient-edge" />
-    <div className="gradient-edge" />
+const LogoShowcase = () => {
+  const { ref, isVisible } = useIntersectionObserver({
+    threshold: 0.15,
+    triggerOnce: true,
+  });
 
-    <div className="marquee h-52">
-      <div className="marquee-box md:gap-12 gap-5">
-        {logoIconsList.map((icon, index) => (
-          <LogoIcon key={index} icon={icon} />
-        ))}
+  return (
+    <div
+      ref={ref}
+      className={`md:my-10 my-5 relative reveal-element ${
+        isVisible ? "reveal-active" : ""
+      }`}
+    >
+      <div className="gradient-edge" />
+      <div className="gradient-edge" />
 
-        {logoIconsList.map((icon, index) => (
-          <LogoIcon key={index} icon={icon} />
-        ))}
+      <div className="marquee h-24">
+        <div className="marquee-box md:gap-12 gap-5">
+          {logoIconsList.map((icon, index) => (
+            <LogoIcon key={index} icon={icon} />
+          ))}
+
+          {logoIconsList.map((icon, index) => (
+            <LogoIcon key={index} icon={icon} />
+          ))}
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default LogoShowcase;
+

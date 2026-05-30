@@ -1,0 +1,147 @@
+import { socialImgs } from "../constants";
+import TitleHeader from "../components/TitleHeader";
+import useIntersectionObserver from "../hooks/useIntersectionObserver";
+
+// Helper to render brand icons in their original brand colors
+const renderSocialIcon = (name, className) => {
+  switch (name.toLowerCase()) {
+    case "linkedin":
+      return (
+        <svg viewBox="0 0 24 24" className={className} fill="#0077b5">
+          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+        </svg>
+      );
+    case "twitter":
+      return (
+        <svg viewBox="0 0 24 24" className={className} fill="#1da1f2">
+          <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+        </svg>
+      );
+    case "instagram":
+      return (
+        <svg viewBox="0 0 24 24" className={className}>
+          <defs>
+            <linearGradient id="instagram-grad" x1="0%" y1="100%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#fdf497" />
+              <stop offset="5%" stopColor="#fdf497" />
+              <stop offset="45%" stopColor="#fd5949" />
+              <stop offset="60%" stopColor="#d6249f" />
+              <stop offset="90%" stopColor="#285AEB" />
+            </linearGradient>
+          </defs>
+          <path fill="url(#instagram-grad)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+        </svg>
+      );
+    default:
+      return null;
+  }
+};
+
+const SocialLinks = () => {
+  const { ref, isVisible } = useIntersectionObserver({
+    threshold: 0.15,
+    triggerOnce: true,
+  });
+
+  // Combine local social profiles with email link
+  const allLinks = [
+    ...socialImgs,
+    {
+      name: "gmail",
+      imgPath: "/images/logos/gmail.svg",
+      link: "mailto:rakshanch0004@gmail.com",
+    }
+  ];
+
+  // Map platform names to their brand accent colors for the glow
+  const getBrandStyles = (name) => {
+    switch (name.toLowerCase()) {
+      case "github":
+        return {
+          glow: "hover:shadow-[0_0_20px_rgba(255,255,255,0.15)] hover:border-white/30",
+          text: "text-white"
+        };
+      case "linkedin":
+        return {
+          glow: "hover:shadow-[0_0_20px_rgba(10,102,194,0.4)] hover:border-[#0a66c2]/40",
+          text: "text-[#0a66c2]"
+        };
+      case "twitter":
+        return {
+          glow: "hover:shadow-[0_0_20px_rgba(29,161,242,0.4)] hover:border-[#1da1f2]/40",
+          text: "text-[#1da1f2]"
+        };
+      case "instagram":
+        return {
+          glow: "hover:shadow-[0_0_20px_rgba(225,48,108,0.4)] hover:border-[#e1306c]/40",
+          text: "text-[#e1306c]"
+        };
+      case "leetcode":
+        return {
+          glow: "hover:shadow-[0_0_20px_rgba(255,161,22,0.4)] hover:border-[#ffa116]/40",
+          text: "text-[#ffa116]"
+        };
+      case "gmail":
+        return {
+          glow: "hover:shadow-[0_0_20px_rgba(234,67,53,0.4)] hover:border-[#ea4335]/40",
+          text: "text-[#ea4335]"
+        };
+      default:
+        return {
+          glow: "hover:shadow-[0_0_20px_rgba(109,69,206,0.3)] hover:border-purple-500/30",
+          text: "text-purple-400"
+        };
+    }
+  };
+
+  return (
+    <section
+      id="links"
+      ref={ref}
+      className={`flex-center section-padding reveal-container ${
+        isVisible ? "reveal-active" : ""
+      }`}
+    >
+      <div className="w-full h-full md:px-10 px-5">
+        <TitleHeader
+          title="Connect & Follow Me"
+          sub="🔗 Find me on my social and coding profiles"
+        />
+
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5 mt-10">
+          {allLinks.map((social, index) => {
+            const styles = getBrandStyles(social.name);
+            const displayName = social.name.charAt(0).toUpperCase() + social.name.slice(1);
+            
+            return (
+              <a
+                key={index}
+                href={social.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`reveal-item card-border bg-black-100 rounded-xl p-5 flex flex-col items-center justify-center gap-3 transition-all duration-300 hover:-translate-y-1 ${styles.glow}`}
+                style={{ transitionDelay: `${index * 0.08}s` }}
+              >
+                <div className="w-12 h-12 flex-center bg-white/5 rounded-lg border border-white/10 group-hover:bg-white/10 transition-colors">
+                  {renderSocialIcon(social.name, "w-6 h-6 object-contain") || (
+                    <img
+                      src={social.imgPath}
+                      alt={social.name}
+                      className="w-6 h-6 object-contain"
+                    />
+                  )}
+                </div>
+                <div className="text-center">
+                  <p className="font-semibold text-sm text-white">{displayName}</p>
+                  <p className="text-[10px] text-white-50 mt-0.5">Click to visit</p>
+                </div>
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default SocialLinks;

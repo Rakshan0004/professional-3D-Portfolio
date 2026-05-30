@@ -13,6 +13,7 @@ const LogoShowcase = lazy(() => import("./sections/LogoShowcase"));
 const TechStack = lazy(() => import("./sections/TechStack"));
 const Education = lazy(() => import("./sections/Education"));
 const Testimonials = lazy(() => import("./sections/Testimonials"));
+const SocialLinks = lazy(() => import("./sections/SocialLinks"));
 const Contact = lazy(() => import("./sections/Contact"));
 const Footer = lazy(() => import("./sections/Footer"));
 
@@ -70,7 +71,12 @@ const App = () => (
       <Testimonials />
     </Suspense>
 
-    {/* 10. Contact + Footer — CTA */}
+    {/* 10. Links — dedicated social links section */}
+    <Suspense fallback={<SectionLoader />}>
+      <SocialLinks />
+    </Suspense>
+
+    {/* 11. Contact + Footer — CTA */}
     <Suspense fallback={<SectionLoader />}>
       <Contact />
     </Suspense>
