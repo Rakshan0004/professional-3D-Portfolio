@@ -62,15 +62,15 @@ const Hero = () => {
               building innovative solutions.
             </p>
 
-            <div className="flex flex-row items-center gap-3 md:gap-6 pointer-events-auto">
+            <div className="flex flex-row items-center gap-3 md:gap-4 pointer-events-auto">
               <Button
                 text="See My Work"
-                className="md:w-80 md:h-16 w-44 h-12"
-                id="counter"
+                className="md:w-56 md:h-12 w-44 h-11"
+                id="experience"
               />
 
               <ResumeButton
-                className="md:w-48 md:h-16 w-32 h-12"
+                className="md:w-36 md:h-12 w-28 h-11"
               />
             </div>
           </div>

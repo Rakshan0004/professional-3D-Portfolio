@@ -1,6 +1,6 @@
+import { useEffect, useRef, useState } from "react";
 import { socialImgs } from "../constants";
 import TitleHeader from "../components/TitleHeader";
-import useIntersectionObserver from "../hooks/useIntersectionObserver";
 
 // Helper to render brand icons in their original brand colors
 const renderSocialIcon = (name, className) => {
@@ -38,10 +38,8 @@ const renderSocialIcon = (name, className) => {
 };
 
 const SocialLinks = () => {
-  const { ref, isVisible } = useIntersectionObserver({
-    threshold: 0.15,
-    triggerOnce: true,
-  });
+  const sectionRef = useRef(null);
+  const [revealedCount, setRevealedCount] = useState(0);
 
   // Combine local social profiles with email link
   const allLinks = [
@@ -52,6 +50,42 @@ const SocialLinks = () => {
       link: "mailto:rakshanch0004@gmail.com",
     }
   ];
+
+  // Scroll-linked reveal: cards appear one-by-one as the user scrolls
+  // the wheel down through the section.
+  useEffect(() => {
+    const total = allLinks.length;
+    const update = () => {
+      const el = sectionRef.current;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      const vh = window.innerHeight || document.documentElement.clientHeight;
+      const startY = vh * 0.9; // begin revealing when section top reaches 90% of viewport
+      const endY = vh * 0.35;  // fully revealed once the section is well into view
+      const progress = (startY - rect.top) / (startY - endY);
+      const clamped = Math.min(Math.max(progress, 0), 1);
+      setRevealedCount(Math.round(clamped * total));
+    };
+
+    let raf = null;
+    const onScroll = () => {
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = null;
+        update();
+      });
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    update();
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, [allLinks.length]);
 
   // Map platform names to their brand accent colors for the glow
   const getBrandStyles = (name) => {
@@ -97,12 +131,18 @@ const SocialLinks = () => {
   return (
     <section
       id="links"
-      ref={ref}
-      className={`flex-center section-padding reveal-container ${
-        isVisible ? "reveal-active" : ""
-      }`}
+      ref={sectionRef}
+      className="flex-center section-padding min-h-dvh"
     >
-      <div className="w-full h-full md:px-10 px-5">
+      {/* Unique animated background — scoped to this section only */}
+      <div className="links-bg" aria-hidden="true">
+        <div className="links-grid-bg" />
+        <div className="links-orb links-orb-1" />
+        <div className="links-orb links-orb-2" />
+        <div className="links-orb links-orb-3" />
+      </div>
+
+      <div className="w-full h-full md:px-10 px-5 relative z-10">
         <TitleHeader
           title="Connect & Follow Me"
           sub="🔗 Find me on my social and coding profiles"
@@ -119,8 +159,9 @@ const SocialLinks = () => {
                 href={social.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`reveal-item card-border bg-black-100 rounded-xl p-5 flex flex-col items-center justify-center gap-3 transition-all duration-300 hover:-translate-y-1 ${styles.glow}`}
-                style={{ transitionDelay: `${index * 0.08}s` }}
+                className={`link-card card-border bg-black-100 rounded-xl p-5 flex flex-col items-center justify-center gap-3 hover:-translate-y-1 ${
+                  index < revealedCount ? "is-visible" : ""
+                } ${styles.glow}`}
               >
                 <div className="w-12 h-12 flex-center bg-white/5 rounded-lg border border-white/10 group-hover:bg-white/10 transition-colors">
                   {renderSocialIcon(social.name, "w-6 h-6 object-contain") || (

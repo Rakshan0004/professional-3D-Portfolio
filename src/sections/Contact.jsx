@@ -89,7 +89,7 @@ const Contact = () => {
         />
         <div className="grid-12-cols mt-16">
           <div className="xl:col-span-5 min-h-[500px]">
-            <div className="flex-center card-border rounded-xl p-6 h-full relative overflow-hidden">
+            <div className="contact-form-card flex-center card-border rounded-xl p-6 h-full relative overflow-hidden">
               {/* Form UI */}
               <div className={`w-full transition-all duration-500 ${success ? 'opacity-0 scale-95 pointer-events-none' : 'opacity-100 scale-100'}`}>
                 <form
@@ -167,7 +167,7 @@ const Contact = () => {
             </div>
           </div>
           <div className="xl:col-span-7 min-h-96">
-            <div className="bg-[#cd7c2e] w-full h-full hover:cursor-grab rounded-3xl overflow-hidden">
+            <div className="contact-3d-wrapper w-full h-full hover:cursor-grab rounded-3xl overflow-hidden relative">
               {isVisible ? (
                 <ContactExperience />
               ) : (
