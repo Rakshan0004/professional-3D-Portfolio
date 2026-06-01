@@ -59,9 +59,11 @@ const Contact = () => {
     e.preventDefault();
     setLoading(true);
 
-    const serviceId = import.meta.env.VITE_APP_EMAILJS_SERVICE_ID || "service_lye51d1";
+    const serviceId = import.meta.env.VITE_APP_EMAILJS_SERVICE_ID || "service_h80ngbw";
     const templateId = import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID || "template_wjbwf2o";
     const publicKey = import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY || "7PfPCTSnd4gZ-Mgkk";
+
+    console.log("Sending email with credentials:", { serviceId, templateId, publicKey });
 
     try {
       await emailjs.sendForm(
@@ -82,13 +84,13 @@ const Contact = () => {
 
   return (
     <section id="contact" ref={sectionRef} className="flex-center section-padding">
-      <div className="w-full h-full md:px-10 px-5">
+      <div className="w-full h-full md:px-10 px-5 max-w-7xl mx-auto">
         <TitleHeader
           title="Get in Touch – Let's Connect"
           sub="💬 Have questions or ideas? Let's talk! 🚀"
         />
         <div className="grid-12-cols mt-16">
-          <div className="xl:col-span-5 min-h-[500px]">
+          <div className="xl:col-span-6 min-h-[500px] xl:min-h-[580px]">
             <div className="contact-form-card flex-center card-border rounded-xl p-6 h-full relative overflow-hidden">
               {/* Form UI */}
               <div className={`w-full transition-all duration-500 ${success ? 'opacity-0 scale-95 pointer-events-none' : 'opacity-100 scale-100'}`}>
@@ -166,7 +168,7 @@ const Contact = () => {
               </div>
             </div>
           </div>
-          <div className="xl:col-span-7 min-h-96">
+          <div className="xl:col-span-6 min-h-[400px] xl:min-h-[580px]">
             <div className="contact-3d-wrapper w-full h-full hover:cursor-grab rounded-3xl overflow-hidden relative">
               {isVisible ? (
                 <ContactExperience />
