@@ -160,7 +160,7 @@ const expCards = [
     logoPath: "/images/logo3.png",
     title: "Full Stack Developer",
     company: "Pluto Rides",
-    date: "Jan 2026 - March 2026",
+    date: "Jan 2026 - April 2026",
     location: "Bengaluru, India",
     responsibilities: [
       "Contributed to cross-platform mobile application development using Kotlin Multiplatform (KMP) and Compose Multiplatform (CMP) for shared business logic across iOS and Android",
