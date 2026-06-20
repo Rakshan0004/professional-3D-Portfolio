@@ -4,14 +4,11 @@
  */
 
 const ResumeButton = ({ className }) => {
-  const handleResumeClick = () => {
-    // Open the resume PDF in a new tab
-    window.open('/images/resume.pdf', '_blank');
-  };
-
   return (
-    <button
-      onClick={handleResumeClick}
+    <a
+      href="/images/resume.pdf"
+      target="_blank"
+      rel="noopener noreferrer"
       className={`${className ?? ""} resume-button-wrapper`}
     >
       <div className="resume-button">
@@ -62,7 +59,7 @@ const ResumeButton = ({ className }) => {
         </div>
         <span className="text">Resume</span>
       </div>
-    </button>
+    </a>
   );
 };
 
