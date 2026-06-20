@@ -38,7 +38,20 @@ const NavBar = () => {
           <ul>
           {navLinks.map(({ link, name }) => (
               <li key={name} className="group">
-                <a href={link} className="flex items-center gap-1.5">
+                <a 
+                  href={link} 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const targetId = link.replace('#', '');
+                    const target = document.getElementById(targetId);
+                    if (target) {
+                      const offset = window.innerHeight * 0.15;
+                      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+                      window.scrollTo({ top, behavior: "smooth" });
+                    }
+                  }}
+                  className="flex items-center gap-1.5"
+                >
                   {name === "Live" && (
                     <span className="relative flex h-2 w-2">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
@@ -53,7 +66,19 @@ const NavBar = () => {
           </ul>
         </nav>
 
-        <a href="#contact" className="contact-btn group">
+        <a 
+          href="#contact" 
+          onClick={(e) => {
+            e.preventDefault();
+            const target = document.getElementById("contact");
+            if (target) {
+              const offset = window.innerHeight * 0.15;
+              const top = target.getBoundingClientRect().top + window.scrollY - offset;
+              window.scrollTo({ top, behavior: "smooth" });
+            }
+          }}
+          className="contact-btn group"
+        >
           <div className="inner">
             <span>Contact me</span>
           </div>
