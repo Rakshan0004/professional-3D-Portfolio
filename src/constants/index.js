@@ -37,7 +37,7 @@ const words = [
 ];
 
 const counterItems = [
-  { value: 18, suffix: "+", label: "Months of Experience" },
+  { value: 24, suffix: "+", label: "Months of Experience" },
   { value: 6, suffix: "+", label: "Projects Completed" },
   { value: 5, suffix: "+", label: "Technologies Mastered" },
   { value: 100, suffix: "%", label: "Commitment to Quality" },
@@ -158,34 +158,39 @@ const expCards = [
     review: "At Pluto Rides, I contributed to the development of cross-platform mobility applications and backend infrastructure supporting ride management and real-time driver operations.",
     imgPath: "/images/exp3.png",
     logoPath: "/images/logo3.png",
-    title: "Full Stack Developer",
+    title: "Software Engineer",
     company: "Pluto Rides",
-    date: "Jan 2026 - April 2026",
+    date: "Jan 2026 - Mar 2026",
     location: "Bengaluru, India",
     responsibilities: [
-      "Contributed to cross-platform mobile application development using Kotlin Multiplatform (KMP) and Compose Multiplatform (CMP) for shared business logic across iOS and Android",
-      "Developed serverless backend APIs on AWS using Lambda and API Gateway to support ride and driver management workflows",
-      "Worked on PostgreSQL schema design for ride matching, driver tracking, and transaction management systems",
-      "Implemented real-time location tracking and Firebase Cloud Messaging (FCM) push notifications in customer and driver applications",
-      "Built a full-featured admin panel from scratch covering ride monitoring, driver verification, analytics, and operational controls",
-      "Implemented authentication and role-based authorization flows for customers, drivers, and administrators to ensure secure access management",
+      "Architected and deployed 30+ serverless REST endpoints on AWS Lambda and API Gateway for ride and driver management, achieving zero-server-overhead scalability and reducing infrastructure cost by 40%",
+      "Spearheaded the subsequent migration of the entire backend infrastructure from AWS Lambda serverless functions to Spring Boot",
+      "Owned end-to-end delivery of a full-featured admin panel covering ride management, driver verification, analytics, and system monitoring — shipping all modules within a 3-month timeline, 100% on schedule",
+      "Modeled PostgreSQL database schemas for ride matching, driver tracking, and transaction management, supporting 5+ entity relationships and enabling consistent, reliable data flow across all services",
+      "Built cross-platform mobile applications using Kotlin Multiplatform (KMP) and Compose Multiplatform (CMP), sharing 70% of business logic and UI components across iOS and Android — cutting mobile dev effort in half",
+      "Added real-time GPS location tracking and Firebase Cloud Messaging (FCM) push notifications for customer and driver apps, boosting time-sensitive ride event response rates by 35%",
+      "Enforced authentication and authorization flows with role-based access control (RBAC) across 3 user roles (customer, driver, admin), eliminating unauthorized cross-role data access",
+      "Configured CI/CD pipelines for automated build, test, and deployment workflows, reducing manual release effort and enabling same-day hotfix deployments across environments",
+      "Collaborated with product and business teams in a 2-week Agile sprint cadence, consistently delivering features on schedule with no critical production incidents"
     ],
   },
   {
     review: "At Qontact, I worked on building intelligent, data-driven web applications from scratch, contributing across frontend, backend, automation pipelines, and AI-powered features.",
     imgPath: "/images/exp1.png",
     logoPath: "/images/logo1.png",
-    title: "Full Stack Developer",
+    title: "Software Engineer",
     company: "QONTACT",
-    date: "May 2025 - Dec 2025",
-    location: "Toronto, Canada",
+    date: "Jun 2025 - Dec 2025",
+    location: "Toronto, Canada (Remote)",
     responsibilities: [
-      "Built a production-ready web application using Next.js 15 based on Figma designs, ensuring high performance and consistent cross-device user experience",
-      "Developed automated web scraping pipelines using FastAPI, Selenium, and BeautifulSoup, reducing manual data entry effort by 80%",
-      "Designed and implemented REST APIs using FastAPI to support business workflows and enable seamless frontend-backend communication",
-      "Created data transformation pipelines to convert scraped data into structured JSON schemas for downstream integrations",
-      "Integrated a Retrieval-Augmented Generation (RAG) based AI chatbot using LLM APIs and Pinecone vector database for context-aware responses from indexed documents",
-      "Participated in technical discussions and code reviews to maintain code quality and ensure timely delivery of features",
+      "Shipped a RAG-based AI chatbot into a Next.js application using Claude/OpenAI LLM APIs and Pinecone vector database, cutting average support query resolution time by 60% over manual lookup",
+      "Built and maintained 10+ REST API endpoints using FastAPI to power core business workflows, ensuring reliable data exchange between frontend and backend services with under 200ms average response time",
+      "Constructed an automated web scraping pipeline using FastAPI, Selenium, and BeautifulSoup to extract and normalize data from 15+ websites into structured JSON schemas, reducing manual data entry time by 80%",
+      "Delivered a pixel-accurate, responsive web application from scratch using Next.js 15 based on Figma designs, achieving consistent performance across all major browsers and device sizes",
+      "Utilized AWS S3 for scalable file storage, Redis for high-frequency data caching, and Docker for containerizing services — improving deployment consistency and reducing environment-related bugs by 50%",
+      "Engineered data transformation pipelines converting raw scraped content into standardized JSON formats, enabling seamless consumption by 3 downstream application services",
+      "Integrated third-party APIs and webhooks for real-time event handling, extending platform capabilities without increasing backend complexity",
+      "Participated in weekly code reviews and cross-functional syncs, contributing feedback on 20+ PRs and maintaining code quality standards across the team"
     ],
   },
   {
@@ -298,19 +303,19 @@ const educationData = [
   {
     degree: "B.Tech in Electronics and Communication Engineering",
     institution: "Vellore Institute of Technology",
-    period: "March 2020 – May 2024",
+    period: "Mar 2020 – May 2024",
     gpa: "7.8/10",
   },
   {
     degree: "Intermediate Education (MPC)",
-    institution: "FIITJEE Junior College",
-    period: "2018 – 2020",
+    institution: "FIITJEE College",
+    period: "Jun 2018 – May 2020",
     gpa: "9.0/10",
   },
   {
     degree: "Standard X",
-    institution: "FIITJEE Junior College",
-    period: "2017 – 2018",
+    institution: "FIITJEE School",
+    period: "Jun 2017 – May 2018",
     gpa: "9.5/10",
   },
 ];
@@ -438,7 +443,7 @@ const faqData = [
   },
   {
     question: "What technologies does Rakshan work with?",
-    answer: "My technical stack is versatile and carefully chosen to deliver high-performance applications. On the frontend, I specialize in React, Next.js, and modern CSS frameworks like Tailwind CSS, often incorporating 3D elements using Three.js for immersive user experiences. For the backend, I leverage the power of Node.js, Python (FastAPI), and Java (Spring Boot) to build secure and scalable RESTful APIs. I also have deep experience managing structured and unstructured data using databases like PostgreSQL, MySQL, and Pinecone for AI integrations. Furthermore, my workflow is heavily augmented by tools like Git, Docker, and CI/CD pipelines to ensure seamless deployment.",
+    answer: "My technical stack is comprehensive and carefully chosen to deliver high-performance, scalable applications. It includes Languages (Java, JavaScript, TypeScript, Python, SQL, HTML5, CSS3), Frameworks (Spring Boot, React.js, Next.js, FastAPI, Express.js, Node.js, KMP, CMP), Cloud & DevOps (AWS - EC2, S3, Lambda, API Gateway, Docker, Vercel, Maven, Git, CI/CD), Databases (PostgreSQL, MySQL, MongoDB, Redis, Pinecone, Redshift), AI & Integration (Claude API, OpenAI API, LangChain, RAG Pipelines, n8n, AI Agents), and Tools & Methods (Postman, Selenium, BeautifulSoup, Firebase/FCM, pgAdmin, Agile/Scrum). I leverage this stack to build everything from robust full-stack applications to intelligent AI-powered systems.",
   },
   {
     question: "Is Rakshan available for freelance projects?",
@@ -446,7 +451,7 @@ const faqData = [
   },
   {
     question: "What kind of projects does Rakshan build?",
-    answer: "I engineer a highly diverse portfolio of digital products tailored to distinct business needs. This includes highly responsive corporate websites, sophisticated full-stack SaaS platforms, end-to-end e-commerce solutions, and complex data collection dashboards. Recently, I have also been deeply involved in developing AI-integrated applications, utilizing Large Language Models (LLMs) and Retrieval-Augmented Generation (RAG) architectures to create intelligent, context-aware chatbots and automation pipelines. My focus is always on creating systems that are not only visually stunning but also highly functional, accessible, and primed for growth.",
+    answer: "I engineer a highly diverse portfolio of digital products spanning Web Apps, Mobile Apps, Cloud Infrastructure, and AI. Specifically, I build responsive, full-stack web applications (SaaS, e-commerce) and cross-platform mobile apps for iOS and Android. Beyond the frontend, I architect highly scalable backend systems and serverless infrastructures on AWS. Furthermore, I integrate cutting-edge AI capabilities—such as RAG pipelines, LLMs, and AI agents—into these applications to create intelligent, context-aware solutions. My focus is always on creating systems that are functional, accessible, and primed for scale.",
   },
   {
     question: "Where is Rakshan located?",
