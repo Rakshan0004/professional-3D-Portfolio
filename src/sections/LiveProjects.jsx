@@ -70,12 +70,12 @@ const LiveBadge = () => (
 const ProjectCard = ({ project, cardRef, featured }) => (
   <div
     ref={cardRef}
-    className={`card group relative rounded-2xl overflow-hidden border border-white/5 bg-black-100 transition-all duration-500 hover:border-white/10 hover:-translate-y-1 ${
+    className={`card group relative rounded-2xl overflow-hidden border border-white/5 bg-black-100 transition-all duration-500 hover:border-emerald-500/30 hover:shadow-[0_0_40px_rgba(16,185,129,0.15)] hover:-translate-y-1 ${
       featured ? "md:col-span-2" : ""
     }`}
   >
     {/* Screenshot */}
-    <div className={`relative overflow-hidden ${featured ? "h-52 md:h-64" : "h-44 md:h-52"}`}>
+    <div className="relative overflow-hidden w-full aspect-video max-h-[200px] md:max-h-[240px] xl:max-h-[280px]">
       <img
         src={project.image}
         alt={project.title}
@@ -84,7 +84,7 @@ const ProjectCard = ({ project, cardRef, featured }) => (
         className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
       />
       {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black-100 via-black-100/20 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black-100/90 via-black-100/10 to-transparent" />
 
       {/* Live badge floating on image */}
       <div className="absolute top-4 left-4">
@@ -179,7 +179,7 @@ const LiveProjects = () => {
   }, []);
 
   return (
-    <section id="live-projects" ref={sectionRef} className="section-padding">
+    <section id="live-projects" ref={sectionRef} className="px-5 md:px-10 py-16 md:py-24 bg-[#0a0a0c] border-y border-white/5">
       {/* Section Header */}
       <div ref={titleRef} className="text-center mb-8">
         <div className="flex justify-center mb-4">
@@ -203,7 +203,7 @@ const LiveProjects = () => {
       </div>
 
       {/* Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-7xl mx-auto">
         {liveProjects.map((project, index) => (
           <ProjectCard
             key={project.id}

@@ -35,7 +35,7 @@ const ProjectCard = ({ project, index, cardRef, featured }) => (
     }`}
   >
     {/* Image */}
-    <div className={`relative overflow-hidden ${featured ? "h-52 md:h-64" : "h-44 md:h-52"}`}>
+    <div className="relative overflow-hidden w-full aspect-video max-h-[220px] md:max-h-[280px]">
       <img
         src={project.image}
         alt={project.title}
@@ -45,7 +45,7 @@ const ProjectCard = ({ project, index, cardRef, featured }) => (
       />
 
       {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black-100 via-black-100/30 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black-100/90 via-black-100/10 to-transparent" />
 
       {/* Project number */}
       <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-sm border border-white/10 rounded-lg px-3 py-1">
@@ -195,7 +195,7 @@ const AppShowcase = () => {
       </div>
 
       {/* Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {projects.map((project, index) => (
           <ProjectCard
             key={project.id}

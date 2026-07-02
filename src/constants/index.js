@@ -330,7 +330,18 @@ const projects = [
     tags: ["Spring Boot", "Java 17", "MySQL", "Flyway", "REST API"],
     githubUrl: "https://github.com/Rakshan0004",
     demoUrl: null,
-    featured: true,
+    featured: false,
+  },
+  {
+    id: "echo-arena",
+    title: "Echo Arena — 2D Platformer Game",
+    description:
+      "A high-performance, 60FPS 2D time loop platformer built entirely with Vanilla JavaScript and HTML5 Canvas. Features a custom physics engine, input manager, and state machine.",
+    image: "/images/echo-arena.png",
+    tags: ["HTML5 Canvas", "Vanilla JS", "CSS3", "Game Dev"],
+    githubUrl: "https://github.com/Rakshan0004",
+    demoUrl: "https://echo-arena-game.vercel.app/",
+    featured: false,
   },
   {
     id: "blockvote",
@@ -380,6 +391,19 @@ const projects = [
 
 const liveProjects = [
   {
+    id: "echo-arena",
+    title: "Echo Arena",
+    tagline: "High-Performance 2D Time Loop Platformer",
+    description:
+      "A custom-built 60FPS browser game using Vanilla JavaScript and HTML5 Canvas. Features a from-scratch physics engine and responsive CSS3 UI overlays.",
+    image: "/images/echo-arena.png",
+    tags: ["HTML5 Canvas", "Vanilla JS", "Game Engine", "CSS3"],
+    links: [
+      { label: "Play Game", url: "https://echo-arena-game.vercel.app/", icon: "globe" },
+    ],
+    featured: false,
+  },
+  {
     id: "kmpleet",
     title: "Kmpleet",
     tagline: "Robust Data Collection & Analytics Platform",
@@ -395,7 +419,7 @@ const liveProjects = [
         icon: "admin",
       },
     ],
-    featured: true,
+    featured: false,
   },
   {
     id: "plutorides",
