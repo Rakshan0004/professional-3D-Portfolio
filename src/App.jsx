@@ -15,6 +15,7 @@ const Education = lazy(() => import("./sections/Education"));
 const Testimonials = lazy(() => import("./sections/Testimonials"));
 const SocialLinks = lazy(() => import("./sections/SocialLinks"));
 const Contact = lazy(() => import("./sections/Contact"));
+const FAQ = lazy(() => import("./sections/FAQ"));
 const Footer = lazy(() => import("./sections/Footer"));
 
 // Simple loading component
@@ -76,7 +77,12 @@ const App = () => (
       <SocialLinks />
     </Suspense>
 
-    {/* 11. Contact + Footer — CTA */}
+    {/* 11. FAQ — handle common questions */}
+    <Suspense fallback={<SectionLoader />}>
+      <FAQ />
+    </Suspense>
+
+    {/* 12. Contact + Footer — CTA */}
     <Suspense fallback={<SectionLoader />}>
       <Contact />
     </Suspense>

@@ -431,6 +431,41 @@ const liveProjects = [
   },
 ];
 
+const faqData = [
+  {
+    question: "Who is Rakshan?",
+    answer: "I am a passionate Full Stack Developer with extensive expertise in modern web technologies, dedicated to building scalable and responsive web applications. Over the years, I have honed my skills across the entire software development lifecycle, from conceptualizing dynamic user interfaces to engineering robust backend architectures. My journey is fueled by an insatiable curiosity for emerging technologies and a drive to solve complex, real-world problems through clean, maintainable, and efficient code. I thrive in collaborative environments where innovative ideas intersect with technical excellence.",
+  },
+  {
+    question: "What technologies does Rakshan work with?",
+    answer: "My technical stack is versatile and carefully chosen to deliver high-performance applications. On the frontend, I specialize in React, Next.js, and modern CSS frameworks like Tailwind CSS, often incorporating 3D elements using Three.js for immersive user experiences. For the backend, I leverage the power of Node.js, Python (FastAPI), and Java (Spring Boot) to build secure and scalable RESTful APIs. I also have deep experience managing structured and unstructured data using databases like PostgreSQL, MySQL, and Pinecone for AI integrations. Furthermore, my workflow is heavily augmented by tools like Git, Docker, and CI/CD pipelines to ensure seamless deployment.",
+  },
+  {
+    question: "Is Rakshan available for freelance projects?",
+    answer: "Yes, absolutely! I am highly receptive to taking on freelance opportunities and collaborating on exciting new ventures. Whether you are a startup looking to build a Minimum Viable Product (MVP), an established business needing a digital transformation, or an agency requiring specialized technical support, I am ready to bring your vision to life. I pride myself on transparent communication, setting realistic milestones, and delivering exceptional value that aligns perfectly with your strategic goals. Let's schedule a call to discuss how I can contribute to your next big project.",
+  },
+  {
+    question: "What kind of projects does Rakshan build?",
+    answer: "I engineer a highly diverse portfolio of digital products tailored to distinct business needs. This includes highly responsive corporate websites, sophisticated full-stack SaaS platforms, end-to-end e-commerce solutions, and complex data collection dashboards. Recently, I have also been deeply involved in developing AI-integrated applications, utilizing Large Language Models (LLMs) and Retrieval-Augmented Generation (RAG) architectures to create intelligent, context-aware chatbots and automation pipelines. My focus is always on creating systems that are not only visually stunning but also highly functional, accessible, and primed for growth.",
+  },
+  {
+    question: "Where is Rakshan located?",
+    answer: "I am currently based in India, operating in the Indian Standard Time (IST) zone. However, location has never been a barrier to my professional collaborations. I have extensive experience working asynchronously with international clients and cross-functional teams spanning across North America, Europe, and Asia. I utilize asynchronous communication tools, comprehensive documentation, and overlapping working hours to ensure that projects progress smoothly and transparently, regardless of geographical distance.",
+  },
+  {
+    question: "What is Rakshan's educational background?",
+    answer: "I hold a Bachelor of Technology (B.Tech) degree in Electronics and Communication Engineering from the prestigious Vellore Institute of Technology (VIT). During my academic tenure, I developed a strong foundational understanding of computational logic, system architecture, and analytical problem-solving. While my degree is in Electronics, my passion for software engineering drove me to extensively self-educate and undertake rigorous project-based learning in computer science domains. This unique blend of hardware understanding and software proficiency allows me to approach development with a highly structured and optimized mindset.",
+  },
+  {
+    question: "How can I hire Rakshan for my project?",
+    answer: "Hiring me is a straightforward and collaborative process. You can initiate contact by reaching out via the contact form on this portfolio, dropping me a direct message on LinkedIn, or sending an email detailing your project requirements. Once we connect, we will schedule an initial consultation to dive deep into your project's scope, objectives, technical constraints, and timeline. After understanding your needs, I will provide a comprehensive proposal outlining the architecture, estimated milestones, and pricing structure. Upon mutual agreement, we will establish a communication rhythm and kick off the development phase immediately.",
+  },
+  {
+    question: "Does Rakshan write technical blogs?",
+    answer: "Yes, I am a strong advocate for knowledge sharing and community growth. I regularly write technical articles and comprehensive tutorials covering a wide spectrum of software engineering topics. My writing typically focuses on deep dives into modern web frameworks, best practices for building scalable backend systems, step-by-step guides for integrating AI into conventional applications, and my personal learnings from debugging complex production issues. I aim to distill complex technical concepts into accessible, actionable insights for developers of all skill levels.",
+  }
+];
+
 export {
   words,
   abilities,
@@ -446,4 +481,5 @@ export {
   educationData,
   liveProjects,
   projects,
+  faqData,
 };
