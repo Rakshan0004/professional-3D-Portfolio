@@ -392,9 +392,9 @@ const projects = [
     id: "immigration",
     title: "Qontact — Immigration Consulting",
     description:
-      "A production-ready Next.js 15 web application for a global immigration consulting firm, built from Figma designs with a FastAPI backend and AI chatbot.",
+      "A production-ready Next.js 15 web application for a global immigration consulting firm, built from Figma designs with SpringBoot, Express.JS, FastAPI and AI chatbot.",
     image: "/images/immigration_website.png",
-    tags: ["Next.js 15", "FastAPI", "RAG", "Pinecone", "Selenium"],
+    tags: ["Next.js 15", "SpringBoot", "Express.JS", "FastAPI", "RAG", "Pinecone", "Selenium"],
     githubUrl: "https://github.com/Rakshan0004",
     demoUrl: null,
     featured: false,
