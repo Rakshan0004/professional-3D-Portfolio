@@ -155,7 +155,7 @@ const techStackIcons = [
 
 const expCards = [
   {
-    review: "As a freelance developer, I built the backend for Hyacinte AI — a bilingual RAG-powered executive intelligence platform for the ECOWAS region, featuring multi-tenant security and async document processing.",
+    review: "As a freelance developer, I delivered a working prototype for Hyacinte AI — a bilingual RAG-powered executive intelligence platform for the ECOWAS region — in just 2 months, featuring multi-tenant security and async document processing.",
     imgPath: "/images/exp1.png",
     logoPath: "/images/logo1.png",
     title: "Freelance Full Stack Developer",
@@ -164,13 +164,14 @@ const expCards = [
     location: "Remote (Ghana Client)",
     techStack: ["Python", "FastAPI", "PostgreSQL", "Qdrant", "Redis", "Dramatiq", "AWS Bedrock", "JWT", "SQLAlchemy 2.0", "Docker", "Git"],
     responsibilities: [
-      "Built the full backend as a FastAPI monolith for a bilingual (English/French) AI executive intelligence platform targeting the ECOWAS region",
+      "Delivered a functional backend prototype for a bilingual (English/French) AI executive intelligence platform targeting the ECOWAS region within a tight 2-month freelance engagement",
       "Implemented a RAG pipeline using Qdrant as the vector database with tenant-scoped payload filtering, and AWS Bedrock (Mistral Large 2) as the LLM provider — chosen specifically to keep all client data within AWS infrastructure and avoid sending sensitive documents to external APIs like OpenAI or Claude",
       "Implemented a shared-schema multi-tenancy model in PostgreSQL with strict org_id isolation and RBAC middleware to prevent unauthorized cross-organization data access",
       "Set up asynchronous background task processing using Redis and Dramatiq for OCR, PDF ingestion, and semantic chunking workflows",
       "Built JWT + bcrypt authentication with a SHA-256 intermediary layer to safely handle bcrypt's 72-byte limit for refresh tokens",
       "Integrated sentence-transformers locally on CPU for document embedding, with structural citation parsing to ground every AI response in its source documents",
-      "Used SQLAlchemy 2.0 with asyncpg for fully async database interactions across all API and background task layers"
+      "Used SQLAlchemy 2.0 with asyncpg for fully async database interactions across all API and background task layers",
+      "Leveraged AI-assisted development workflows (Claude Code with structured context and skill files) to maintain high development velocity and ship the prototype on schedule as a solo developer"
     ],
   },
   {
