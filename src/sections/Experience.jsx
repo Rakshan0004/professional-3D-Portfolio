@@ -122,6 +122,23 @@ const Experience = () => {
                         <p className="text-white-50 mb-3 font-medium">
                           📍&nbsp;{card.location}
                         </p>
+                        {card.techStack && (
+                          <div className="mb-4">
+                            <p className="text-xs text-[#839CB5] font-semibold uppercase tracking-wider mb-2">
+                              Tech Stack
+                            </p>
+                            <div className="flex flex-wrap gap-1.5">
+                              {card.techStack.map((tech) => (
+                                <span
+                                  key={tech}
+                                  className="px-2 py-0.5 text-xs font-medium rounded bg-white/5 text-white/80 border border-white/10 hover:border-purple-500 hover:text-purple-300 transition-colors duration-200"
+                                >
+                                  {tech}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        )}
                         <p className="text-[#839CB5] italic">
                           Responsibilities
                         </p>
