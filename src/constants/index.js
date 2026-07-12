@@ -199,7 +199,7 @@ const expCards = [
     review: "As a freelance developer, I built the backend for Hyacinte AI — a bilingual RAG-powered executive intelligence platform for the ECOWAS region, featuring multi-tenant security and async document processing.",
     imgPath: "/images/exp1.png",
     logoPath: "/images/logo1.png",
-    title: "Freelance Backend Developer",
+    title: "Freelance Full Stack Developer",
     company: "Hyacinte AI",
     date: "May 2026 – Jun 2026",
     location: "Remote (Ghana Client)",
