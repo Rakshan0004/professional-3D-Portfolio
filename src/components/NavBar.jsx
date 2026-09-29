@@ -115,7 +115,7 @@ const NavBar = () => {
           className="contact-btn group"
         >
           <div className="inner">
-            <span>Contact me</span>
+            <span>Start a Project</span>
           </div>
         </a>
       </div>

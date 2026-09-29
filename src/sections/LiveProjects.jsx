@@ -65,7 +65,7 @@ const LiveCard = ({ project, cardRef }) => (
     className="group flex flex-col rounded-2xl overflow-hidden border border-white/8 bg-white/[0.03] hover:bg-white/[0.06] hover:border-emerald-500/25 transition-all duration-400 hover:-translate-y-1 hover:shadow-[0_16px_48px_rgba(16,185,129,0.1)]"
   >
     {/* Screenshot */}
-    <div className="relative overflow-hidden w-full" style={{ height: "180px" }}>
+    <div className="relative overflow-hidden w-full h-[140px] 2xl:h-[180px]">
       <img
         src={project.image}
         alt={project.title}
@@ -165,10 +165,10 @@ const LiveProjects = () => {
         <div className="live-orb live-orb-3" />
       </div>
 
-      <div className="relative z-10 w-full px-5 md:px-10 py-16 md:py-20">
+      <div className="relative z-10 w-full px-5 md:px-10 py-12 2xl:py-20">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <div ref={titleRef} className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10 md:mb-12">
+          <div ref={titleRef} className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6 2xl:mb-12">
             <div>
               <div className="flex items-center gap-2 mb-3">
                 <span className="relative flex h-2 w-2">
@@ -197,7 +197,7 @@ const LiveProjects = () => {
           </div>
 
           {/* Divider */}
-          <div className="mb-8 h-px bg-gradient-to-r from-emerald-500/40 via-cyan-500/15 to-transparent" />
+          <div className="mb-6 2xl:mb-8 h-px bg-gradient-to-r from-emerald-500/40 via-cyan-500/15 to-transparent" />
 
           {/* Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">

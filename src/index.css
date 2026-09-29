@@ -42,11 +42,56 @@ canvas {
   will-change: transform;
 }
 
+/* Laptop screens (e.g. 13–17" with Windows display scaling) have far less room
+   than a 24" monitor. Tailwind sizes are rem-based, so shrinking the root font
+   scales text, padding and cards together. Large monitors are unaffected. */
+@media (min-width: 1024px) and (max-width: 1535px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 1024px) and (max-height: 760px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+/* No content-visibility here: its placeholder height made off-screen sections
+   report the wrong size, so "Start a Project" and nav links overshot to the footer.
+   scroll-margin keeps anchored sections clear of the fixed navbar. */
 section {
   width: 100dvw;
-  content-visibility: auto;
-  contain-intrinsic-size: 1px 1000px;
-  /* Placeholder size for off-screen sections */
+  scroll-margin-top: 90px;
+}
+
+/* Hero primary CTA: monochrome outline that fills white on hover */
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: 9999px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.hero-cta:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+.hero-cta-icon {
+  display: flex;
+  transition: transform 0.3s ease;
+}
+
+.hero-cta:hover .hero-cta-icon {
+  transform: translateX(4px);
 }
 
 @theme {
@@ -111,19 +156,23 @@ section {
     @apply grid grid-cols-1 xl:grid-cols-12 gap-10;
   }
 
+  /* Desktop: grow with the viewport (min-h) and clear the fixed navbar, so short
+     laptop screens don't push the hero content up under the nav */
   .hero-layout {
-    @apply relative z-10 xl:mt-20 mt-32 md:h-dvh h-[80vh] flex xl:items-center items-start justify-center;
+    @apply relative z-10 mt-32 md:h-dvh h-[80vh] lg:mt-0 lg:h-auto lg:min-h-dvh lg:pt-28 lg:pb-6 flex lg:items-center items-start justify-center;
   }
 
+  /* Headline scales with viewport width AND height (capped at 60px), and the
+     slider is sized in em so it stays aligned at any font size */
   .hero-text {
-    @apply flex flex-col justify-center md:text-[60px] text-[30px] font-semibold relative z-10 pointer-events-none;
+    @apply flex flex-col justify-center md:text-[clamp(40px,min(5.5vw,7.5vh),60px)] text-[30px] font-semibold relative z-10 pointer-events-none;
 
     img {
-      @apply size-8 md:size-10 object-contain;
+      @apply size-8 md:size-[0.67em] object-contain;
     }
 
     .slide {
-      @apply absolute pt-0 px-2 md:px-5 py-[30px] h-[48px] md:h-[78px] md:translate-y-1 translate-y-0 overflow-hidden;
+      @apply absolute pt-0 px-2 md:px-[0.33em] py-[30px] md:pb-[0.5em] h-[48px] md:h-[1.3em] md:translate-y-1 translate-y-0 overflow-hidden;
     }
   }
 
@@ -131,8 +180,9 @@ section {
     @apply bg-black-200 py-2 px-4 rounded-full w-fit text-sm md:text-base text-nowrap;
   }
 
+  /* Room sits on the right from lg (1024px) up, not only from xl */
   .hero-3d-layout {
-    @apply xl:w-[70%] w-full h-full min-h-[50vh] absolute xl:-top-20 top-24 xl:-right-20 right-0;
+    @apply w-full h-full min-h-[50vh] absolute top-24 right-0 lg:w-1/2 lg:top-0 xl:w-[70%] xl:-top-20 xl:-right-20;
   }
 
   .navbar {
@@ -1145,5 +1195,48 @@ section {
   .links-grid-bg,
   .links-orb {
     animation: none;
+  }
+}
+
+/* Experience tab panel: fade in when switching roles */
+.exp-panel-enter {
+  animation: expPanelIn 0.35s ease-out;
+}
+
+@keyframes expPanelIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hero secondary CTA (resume): quiet text button next to the primary */
+.hero-cta-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.25rem;
+  border-radius: 9999px;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.hero-cta-secondary:hover {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 640px) {
+  .hero-cta,
+  .hero-cta-secondary {
+    padding: 0.7rem 1.1rem;
+    font-size: 0.9rem;
+    white-space: nowrap;
   }
 }

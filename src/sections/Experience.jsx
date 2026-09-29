@@ -1,163 +1,93 @@
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useState } from "react";
 
 import { expCards } from "../constants";
 import TitleHeader from "../components/TitleHeader";
-import GlowCard from "../components/GlowCard";
+import ResumeButton from "../components/ResumeButton";
 
-gsap.registerPlugin(ScrollTrigger);
-
+// Tabbed layout: one role visible at a time keeps the section within a single screen
 const Experience = () => {
-  useGSAP(() => {
-    // Loop through each timeline card and animate them in
-    // as the user scrolls to each card
-    gsap.utils.toArray(".timeline-card").forEach((card) => {
-      // Animate the card coming in from the left
-      // and fade in
-      gsap.from(card, {
-        // Move the card in from the left
-        xPercent: -100,
-        // Make the card invisible at the start
-        opacity: 0,
-        // Set the origin of the animation to the left side of the card
-        transformOrigin: "left left",
-        // Animate over 1 second
-        duration: 1,
-        // Use a power2 ease-in-out curve
-        ease: "power2.inOut",
-        // Trigger the animation when the card is 80% of the way down the screen
-        scrollTrigger: {
-          // The card is the trigger element
-          trigger: card,
-          // Trigger the animation when the card is 80% down the screen
-          start: "top 80%",
-        },
-      });
-    });
-
-    // Animate the timeline height as the user scrolls
-    // from the top of the timeline to 70% down the screen
-    // The timeline height should scale down from 1 to 0
-    // as the user scrolls up the screen
-    // Animate the timeline height as the user scrolls
-    gsap.to(".timeline", {
-      scaleY: 0,
-      transformOrigin: "bottom bottom",
-      ease: "none", // Use none for smooth scrubbing
-      scrollTrigger: {
-        trigger: ".timeline",
-        start: "top center",
-        end: "70% center",
-        scrub: true,
-      },
-    });
-
-    // Loop through each expText element and animate them in
-    // as the user scrolls to each text element
-    gsap.utils.toArray(".expText").forEach((text) => {
-      // Animate the text opacity from 0 to 1
-      // and move it from the left to its final position
-      // over 1 second with a power2 ease-in-out curve
-      gsap.from(text, {
-        // Set the opacity of the text to 0
-        opacity: 0,
-        // Move the text from the left to its final position
-        // (xPercent: 0 means the text is at its final position)
-        xPercent: 0,
-        // Animate over 1 second
-        duration: 1,
-        // Use a power2 ease-in-out curve
-        ease: "power2.inOut",
-        // Trigger the animation when the text is 60% down the screen
-        scrollTrigger: {
-          // The text is the trigger element
-          trigger: text,
-          // Trigger the animation when the text is 60% down the screen
-          start: "top 60%",
-        },
-      });
-    }, "<"); // position parameter - insert at the start of the animation
-  }, []);
+  const [active, setActive] = useState(0);
+  const card = expCards[active];
 
   return (
-    <section
-      id="experience"
-      className="flex-center md:mt-24 mt-12 section-padding xl:px-0"
-    >
-      <div className="w-full h-full md:px-20 px-5">
+    <section id="experience" className="flex-center section-padding">
+      <div className="w-full h-full md:px-10 max-w-6xl mx-auto">
         <TitleHeader
-          title="Professional Work Experience"
-          sub="💼 My Career Overview"
+          title="Where I've Built"
+          sub="💼 Startups, Clients & Teams"
         />
-        <div className="mt-16 relative">
-          <div className="relative z-50 xl:space-y-16 space-y-8">
-            {expCards.map((card) => (
-              <div key={card.title} className="exp-card-wrapper">
-                <div className="xl:w-2/6">
-                  <GlowCard card={card}>
-                  </GlowCard>
-                </div>
-                <div className="xl:w-4/6">
-                  <div className="flex items-start">
-                    <div className="timeline-wrapper">
-                      <div className="timeline" />
-                      <div className="gradient-line w-1 h-full" />
-                    </div>
-                    <div className="expText flex xl:gap-20 md:gap-10 gap-5 relative z-20">
-                      <div className="timeline-logo">
-                        <img
-                          src={card.logoPath}
-                          alt="logo"
-                          loading="lazy"
-                          decoding="async"
-                        />
-                      </div>
-                      <div>
-                        <h1 className="font-semibold text-2xl md:text-3xl">{card.title}</h1>
-                        <p className="text-lg md:text-xl text-white-50 font-medium">{card.company}</p>
-                        <p className="my-3 text-white-50">
-                          🗓️&nbsp;{card.date}
-                        </p>
-                        <p className="text-white-50 mb-3 font-medium">
-                          📍&nbsp;{card.location}
-                        </p>
-                        {card.techStack && (
-                          <div className="mb-4">
-                            <p className="text-xs text-[#839CB5] font-semibold uppercase tracking-wider mb-2">
-                              Tech Stack
-                            </p>
-                            <div className="flex flex-wrap gap-1.5">
-                              {card.techStack.map((tech) => (
-                                <span
-                                  key={tech}
-                                  className="px-2 py-0.5 text-xs font-medium rounded bg-white/5 text-white/80 border border-white/10 hover:border-purple-500 hover:text-purple-300 transition-colors duration-200"
-                                >
-                                  {tech}
-                                </span>
-                              ))}
-                            </div>
-                          </div>
-                        )}
-                        <p className="text-[#839CB5] italic">
-                          Responsibilities
-                        </p>
-                        <ul className="list-disc ms-5 mt-3 flex flex-col gap-2 text-white-50">
-                          {card.responsibilities.map(
-                            (responsibility, index) => (
-                              <li key={index} className="text-sm md:text-base">
-                                {responsibility}
-                              </li>
-                            )
-                          )}
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
+
+        <div className="mt-12 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10">
+          {/* Company list */}
+          <div
+            role="tablist"
+            aria-label="Companies"
+            className="lg:col-span-4 flex lg:flex-col gap-1 overflow-x-auto lg:overflow-visible border-b lg:border-b-0 lg:border-l border-white/10"
+          >
+            {expCards.map((item, index) => {
+              const selected = index === active;
+              return (
+                <button
+                  key={`${item.company}-${item.date}`}
+                  role="tab"
+                  aria-selected={selected}
+                  onClick={() => setActive(index)}
+                  className={`text-left flex-shrink-0 px-4 py-3 transition-colors duration-200 border-b-2 lg:border-b-0 lg:border-l-2 lg:-ml-px ${
+                    selected
+                      ? "border-purple-400 bg-white/[0.04] text-white"
+                      : "border-transparent text-white/45 hover:text-white/80 hover:bg-white/[0.02]"
+                  }`}
+                >
+                  <span className="flex items-center gap-2 font-medium whitespace-nowrap">
+                    {item.company}
+                    {index === 0 && (
+                      <span className="relative flex h-1.5 w-1.5">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                        <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500" />
+                      </span>
+                    )}
+                  </span>
+                  <span className="hidden lg:block text-xs text-white/35 mt-0.5">{item.date}</span>
+                </button>
+              );
+            })}
           </div>
+
+          {/* Selected role */}
+          <div role="tabpanel" key={active} className="lg:col-span-8 exp-panel-enter">
+            <h3 className="text-white text-xl md:text-2xl font-semibold">
+              {card.title} <span className="text-purple-300">· {card.company}</span>
+            </h3>
+            <p className="text-white/40 text-sm mt-1">
+              {card.date} · {card.location}
+            </p>
+
+            <p className="text-white/80 mt-4">{card.summary}</p>
+
+            <ul className="mt-4 space-y-2.5">
+              {card.highlights.map((item) => (
+                <li key={item} className="flex gap-3 text-white/60 text-sm leading-relaxed">
+                  <span className="mt-2 size-1 rounded-full bg-purple-300 flex-shrink-0" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="flex flex-wrap gap-1.5 mt-5">
+              {card.techStack.map((tech) => (
+                <span
+                  key={tech}
+                  className="text-[11px] px-2 py-0.5 rounded-full border border-white/10 bg-white/[0.03] text-white/50"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="flex justify-center mt-10">
+          <ResumeButton className="md:w-36 md:h-12 w-28 h-11" />
         </div>
       </div>
     </section>

@@ -8,10 +8,10 @@ const FAQItem = ({ question, answer, isOpen, onClick }) => {
     <div className="border-b border-white/10 last:border-b-0">
       <button
         onClick={onClick}
-        className="w-full py-6 flex justify-between items-center text-left focus:outline-none"
+        className="w-full py-4 flex justify-between items-center text-left focus:outline-none"
         aria-expanded={isOpen}
       >
-        <span className="text-lg md:text-xl font-medium pr-8">{question}</span>
+        <span className="text-base md:text-lg font-medium pr-8">{question}</span>
         <span className="flex-shrink-0 w-8 h-8 flex-center rounded-full border border-white/20 text-white-50 transition-transform duration-300 ease-in-out" style={{ transform: isOpen ? 'rotate(45deg)' : 'rotate(0)' }}>
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M7 1V13M1 7H13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -37,7 +37,7 @@ const FAQ = () => {
     triggerOnce: true,
   });
 
-  const [openIndex, setOpenIndex] = useState(0);
+  const [openIndex, setOpenIndex] = useState(-1);
 
   const toggleAccordion = (index) => {
     setOpenIndex(openIndex === index ? -1 : index);
@@ -53,11 +53,11 @@ const FAQ = () => {
     >
       <div className="w-full max-w-5xl lg:max-w-6xl h-full md:px-10 px-5 mx-auto">
         <TitleHeader
-          title="Frequently Asked Questions"
-          sub="GOT QUESTIONS?"
+          title="Before We Start"
+          sub="❓ Common Questions"
         />
 
-        <div className="mt-16 reveal-item">
+        <div className="mt-10 reveal-item">
           {faqData.map((item, index) => (
             <FAQItem
               key={index}

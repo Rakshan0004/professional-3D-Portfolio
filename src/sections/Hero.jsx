@@ -1,9 +1,6 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
-import AnimatedCounter from "../components/AnimatedCounter";
-import Button from "../components/Button";
-import ResumeButton from "../components/ResumeButton";
 import { words } from "../constants";
 import HeroExperience from "../components/models/hero_models/HeroExperience";
 
@@ -30,22 +27,22 @@ const Hero = () => {
       <div className="hero-layout">
         {/* LEFT: Hero Content */}
         <header className="flex flex-col justify-center md:w-full w-screen md:px-20 px-5">
-          <div className="flex flex-col gap-7">
+          <div className="flex flex-col gap-7 lg:gap-[clamp(14px,3vh,28px)] lg:max-w-[55%] xl:max-w-none">
             <div className="hero-text">
               <h1>
-                Shaping
+                Turning
                 <span className="slide">
                   <span className="wrapper">
                     {words.map((word, index) => (
                       <span
                         key={index}
-                        className="flex items-center md:gap-3 gap-1 pb-2"
+                        className="flex items-center md:gap-[0.2em] gap-1 pb-2 md:pb-[0.133em]"
                       >
                         <img
                           src={word.imgPath}
                           alt={word.text}
                           loading="lazy"
-                          className="xl:size-12 md:size-10 size-7 md:p-2 p-1 rounded-full bg-white-50"
+                          className="md:size-[0.8em] size-7 md:p-[0.13em] p-1 rounded-full bg-white-50"
                         />
                         <span>{word.text}</span>
                       </span>
@@ -53,26 +50,50 @@ const Hero = () => {
                   </span>
                 </span>
               </h1>
-              <h1>into Real Projects</h1>
-              <h1>that Deliver Results</h1>
+              <h1>into Secure Systems</h1>
+              <h1>that Actually Ship</h1>
             </div>
 
-            <p className="text-white-50 md:text-xl relative z-10 pointer-events-none">
-              Hi, I'm Rakshan, a Software Developer based in India with a passion for
-              building innovative solutions.
+            <p className="text-white-50 md:text-xl max-w-xl relative z-10 pointer-events-none">
+              I'm Rakshan. I design and build secure, production-ready
+              software. Open to full-time roles, freelance and contract work.
             </p>
 
-            <div className="flex flex-row items-center gap-3 md:gap-4 pointer-events-auto relative z-20">
-              <Button
-                text="See My Work"
-                className="md:w-56 md:h-12 w-44 h-11"
-                id="experience"
-              />
+            <div className="flex flex-nowrap items-center gap-2 md:gap-3 pointer-events-auto relative z-20">
+              <a
+                href="#contact"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth", block: "start" });
+                }}
+                className="hero-cta group"
+              >
+                <span>Let's Work Together</span>
+                <span className="hero-cta-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg>
+                </span>
+              </a>
 
-              <ResumeButton
-                className="md:w-36 md:h-12 w-28 h-11"
-              />
+              <a
+                href="/images/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hero-cta-secondary group"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                  <polyline points="14 2 14 8 20 8" />
+                </svg>
+                <span>Resume</span>
+              </a>
             </div>
+
+            <p className="hidden md:block text-white/40 text-sm relative z-10 pointer-events-none">
+              Worked with teams in Canada · USA · India
+            </p>
           </div>
         </header>
 
@@ -84,7 +105,6 @@ const Hero = () => {
         </figure>
       </div>
 
-      <AnimatedCounter />
 
       {/* Mobile Scroll Helper: Explicit track on the right to navigate past 3D model */}
       <div className="md:hidden absolute right-0 top-0 w-20 h-screen z-[100] pointer-events-auto flex flex-col justify-center items-center touch-pan-y">

@@ -1,99 +1,36 @@
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { Suspense, useState, useEffect, useRef } from "react";
-
 import TitleHeader from "../components/TitleHeader";
-import TechIconCardExperience from "../components/models/tech_logos/TechIconCardExperience";
-import { techStackIcons } from "../constants";
+import { stackGroups } from "../constants";
 
 const TechStack = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef(null);
-
-  // Intersection Observer to load 3D models only when section is visible
-  useEffect(() => {
-    const element = sectionRef.current;
-    if (!element) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          setIsVisible(entry.isIntersecting);
-        });
-      },
-      { threshold: 0.1, rootMargin: "100px" }
-    );
-
-    observer.observe(element);
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
-
-  // Animate the tech cards in the skills section
-  useGSAP(() => {
-    gsap.fromTo(
-      ".tech-card",
-      {
-        y: 50,
-        opacity: 0,
-      },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 1,
-        ease: "power2.inOut",
-        stagger: 0.2,
-        scrollTrigger: {
-          trigger: "#skills",
-          start: "top center",
-        },
-      }
-    );
-  });
-
   return (
-    <div id="skills" ref={sectionRef} className="flex-center section-padding">
-      <div className="w-full h-full md:px-10 px-5">
+    <section id="skills" className="flex-center section-padding">
+      <div className="w-full h-full md:px-10 max-w-6xl mx-auto">
         <TitleHeader
-          title="How I Can Contribute & My Key Skills"
-          sub="🤝 What I Bring to the Table"
+          title="What I Build With"
+          sub="🧰 Stack"
         />
-        <div className="tech-grid">
-          {techStackIcons.map((techStackIcon) => (
-            <div
-              key={techStackIcon.name}
-              className="card-border tech-card overflow-hidden group xl:rounded-full rounded-lg"
-            >
-              <div className="tech-card-animated-bg" />
-              <div className="tech-card-content">
-                <div className="tech-icon-wrapper">
-                  {isVisible ? (
-                    <Suspense 
-                      fallback={
-                        <div className="flex-center w-full h-full text-white-50 text-sm">
-                          Loading...
-                        </div>
-                      }
-                    >
-                      <TechIconCardExperience model={techStackIcon} />
-                    </Suspense>
-                  ) : (
-                    <div className="flex-center w-full h-full text-white-50 text-sm">
-                      Scroll to load
-                    </div>
-                  )}
-                </div>
-                <div className="padding-x w-full">
-                  <p>{techStackIcon.name}</p>
-                </div>
+
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px rounded-xl overflow-hidden border border-white/8 bg-white/8">
+          {stackGroups.map((group) => (
+            <div key={group.label} className="bg-black-100 p-5">
+              <p className="text-[11px] uppercase tracking-widest text-blue-50 font-semibold mb-3">
+                {group.label}
+              </p>
+              <div className="flex flex-wrap gap-1.5">
+                {group.items.map((item) => (
+                  <span
+                    key={item}
+                    className="text-sm px-2.5 py-1 rounded-md bg-white/[0.04] border border-white/8 text-white/75"
+                  >
+                    {item}
+                  </span>
+                ))}
               </div>
             </div>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -6,14 +6,12 @@ import Navbar from "./components/NavBar";
 import Hero from "./sections/Hero";
 
 // Lazy load all other sections
-const FeatureCards = lazy(() => import("./sections/FeatureCards"));
 const Experience = lazy(() => import("./sections/Experience"));
 const ShowcaseSection = lazy(() => import("./sections/ShowcaseSection"));
 const LiveProjects = lazy(() => import("./sections/LiveProjects"));
-const LogoShowcase = lazy(() => import("./sections/LogoShowcase"));
 const TechStack = lazy(() => import("./sections/TechStack"));
-const Education = lazy(() => import("./sections/Education"));
-const SocialLinks = lazy(() => import("./sections/SocialLinks"));
+const HowIWork = lazy(() => import("./sections/HowIWork"));
+const Services = lazy(() => import("./sections/Services"));
 const Contact = lazy(() => import("./sections/Contact"));
 const FAQ = lazy(() => import("./sections/FAQ"));
 const Footer = lazy(() => import("./sections/Footer"));
@@ -33,55 +31,45 @@ const SectionLoader = () => (
 
 const HomePage = () => (
   <>
-    {/* 1. Hero — first impression */}
+    {/* 1. Hero — positioning: problem → system → secure build */}
     <Hero />
 
-    {/* 2. What I Do — immediately answer "who is this?" */}
+    {/* 3. How I Work — the process, plus security evidence */}
     <Suspense fallback={<SectionLoader />}>
-      <FeatureCards />
+      <HowIWork />
     </Suspense>
 
-    {/* 3. Experience — strongest credential up front */}
-    <Suspense fallback={<SectionLoader />}>
-      <Experience />
-    </Suspense>
-
-    {/* 4. Projects — "here's what I built" */}
+    {/* 4. Case Studies — problem, constraint, decision, result */}
     <Suspense fallback={<SectionLoader />}>
       <ShowcaseSection />
     </Suspense>
 
-    {/* 5. Live Projects — "these are actually running in production" */}
+    {/* 5. Experience — who I've built for */}
+    <Suspense fallback={<SectionLoader />}>
+      <Experience />
+    </Suspense>
+
+    {/* 6. Live Projects — "these are actually running in production" */}
     <Suspense fallback={<SectionLoader />}>
       <LiveProjects />
     </Suspense>
 
-    {/* 6. Logo Showcase — social proof after seeing the work */}
+    {/* 7. Services — ways to work together */}
     <Suspense fallback={<SectionLoader />}>
-      <LogoShowcase />
+      <Services />
     </Suspense>
 
-    {/* 7. Tech Stack — skills that back up the work */}
+    {/* 9. Tech Stack — skills that back up the work */}
     <Suspense fallback={<SectionLoader />}>
       <TechStack />
     </Suspense>
 
-    {/* 8. Education — supporting credential */}
-    <Suspense fallback={<SectionLoader />}>
-      <Education />
-    </Suspense>
-
-    {/* 10. Links — dedicated social links section */}
-    <Suspense fallback={<SectionLoader />}>
-      <SocialLinks />
-    </Suspense>
-
-    {/* 11. FAQ — handle common questions */}
+    {/* 10. FAQ — client questions and objections */}
     <Suspense fallback={<SectionLoader />}>
       <FAQ />
     </Suspense>
 
-    {/* 12. Contact + Footer — CTA */}
+    {/* 11. Contact — CTA */}
     <Suspense fallback={<SectionLoader />}>
       <Contact />
     </Suspense>

@@ -1,42 +1,36 @@
 const navLinks = [
   {
-    name: "Experience",
-    link: "#experience",
+    name: "Process",
+    link: "#process",
   },
   {
     name: "Work",
     link: "#work",
   },
   {
+    name: "Experience",
+    link: "#experience",
+  },
+  {
     name: "Live",
     link: "#live-projects",
   },
   {
-    name: "Skills",
-    link: "#skills",
-  },
-  {
-    name: "Links",
-    link: "#links",
+    name: "Services",
+    link: "#services",
   },
 ];
 
+// Hero slider needs exactly 8 entries (4 words, repeated) to match the wordSlider keyframes
 const words = [
+  { text: "Problems", imgPath: "/images/concepts.svg" },
   { text: "Ideas", imgPath: "/images/ideas.svg" },
-  { text: "Concepts", imgPath: "/images/concepts.svg" },
-  { text: "Designs", imgPath: "/images/designs.svg" },
-  { text: "Code", imgPath: "/images/code.svg" },
+  { text: "Workflows", imgPath: "/images/designs.svg" },
+  { text: "Products", imgPath: "/images/code.svg" },
+  { text: "Problems", imgPath: "/images/concepts.svg" },
   { text: "Ideas", imgPath: "/images/ideas.svg" },
-  { text: "Concepts", imgPath: "/images/concepts.svg" },
-  { text: "Designs", imgPath: "/images/designs.svg" },
-  { text: "Code", imgPath: "/images/code.svg" },
-];
-
-const counterItems = [
-  { value: 24, suffix: "+", label: "Months of Experience" },
-  { value: 6, suffix: "+", label: "Projects Completed" },
-  { value: 5, suffix: "+", label: "Technologies Mastered" },
-  { value: 100, suffix: "%", label: "Commitment to Quality" },
+  { text: "Workflows", imgPath: "/images/designs.svg" },
+  { text: "Products", imgPath: "/images/code.svg" },
 ];
 
 const logoIconsList = [
@@ -75,22 +69,81 @@ const logoIconsList = [
   },
 ];
 
-const abilities = [
+const processSteps = [
+  { step: "01", title: "Find", desc: "Understand the real problem before any code." },
+  { step: "02", title: "Define", desc: "Scope the smallest thing that proves the value." },
+  { step: "03", title: "Design", desc: "Architect the system and its tradeoffs up front." },
+  { step: "04", title: "Build", desc: "Ship it secure, tested and fully yours." },
+];
+
+const securityPractices = [
+  "End-to-end encryption",
+  "Server-side permissions",
+  "Role-based access",
+  "Tenant isolation",
+  "Private AI on your cloud",
+];
+
+const caseStudies = [
   {
-    imgPath: "/images/seo.png",
-    title: "Full Stack Development",
-    desc: "Expertise in Java, Spring Boot, MERN stack, AWS, and modern web technologies for scalable end-to-end solutions.",
+    id: "lawsafe",
+    title: "LawSafe",
+    label: "PunkRaven",
+    problem: "Legal guidance for India, in the user's own language.",
+    built: "One backend serving 3 web and 2 mobile apps, with verified advocates and role-based access.",
+    tags: ["FastAPI", "Next.js", "Expo"],
+    link: null,
   },
   {
-    imgPath: "/images/chat.png",
-    title: "Problem Solving",
-    desc: "Strong analytical skills with experience in building scalable applications and REST APIs.",
+    id: "dafter",
+    title: "Dafter",
+    label: "Open source",
+    problem: "Realtime voice and video AI for any app.",
+    built: "Go control plane on LiveKit with per-session encryption and consent-gated recording.",
+    tags: ["Go", "Python", "LiveKit"],
+    link: "https://github.com/punk-raven/dafter",
   },
   {
-    imgPath: "/images/time.png",
-    title: "Continuous Learning",
-    desc: "Passionate about staying updated with latest technologies and best practices in software development.",
+    id: "hyacinte",
+    title: "Hyacinte AI",
+    label: "Client",
+    problem: "Private AI answers over sensitive documents.",
+    built: "Multi-tenant RAG on AWS Bedrock, so data never leaves AWS. Shipped solo in 3 months.",
+    tags: ["FastAPI", "AWS Bedrock", "Qdrant"],
+    link: null,
   },
+];
+
+const services = [
+  {
+    title: "MVP: Idea to Production",
+    desc: "I scope it, architect it and ship a secure first version you can put in front of users.",
+    points: ["Discovery & scoping", "Web + mobile apps", "Deployed with CI/CD"],
+  },
+  {
+    title: "AI & Realtime Features",
+    desc: "Cited answers over your documents, AI agents and voice, with private-cloud options for sensitive data.",
+    points: ["RAG & AI agents", "Voice & live translation", "Private LLMs on AWS"],
+  },
+  {
+    title: "Cloud, DevOps & Security",
+    desc: "AWS infrastructure as code, pipelines and access control, set up properly from the start.",
+    points: ["AWS & OpenTofu", "CI/CD pipelines", "Auth, RBAC & hardening"],
+  },
+  {
+    title: "Architecture Review",
+    desc: "A review of your system's bottlenecks and security gaps, with a prioritized plan to fix them.",
+    points: ["System & data design", "Security gap analysis", "Actionable roadmap"],
+  },
+];
+
+const stackGroups = [
+  { label: "Languages", items: ["TypeScript", "Python", "Go", "Java", "SQL"] },
+  { label: "Backend", items: ["FastAPI", "Spring Boot", "Node.js", "REST & WebSockets"] },
+  { label: "Web & Mobile", items: ["Next.js", "React", "Expo / React Native", "Kotlin Multiplatform"] },
+  { label: "Data", items: ["PostgreSQL", "MongoDB", "Redis", "Qdrant", "Pinecone"] },
+  { label: "Cloud & DevOps", items: ["AWS", "OpenTofu", "Docker", "GitHub Actions", "Observability"] },
+  { label: "AI & Realtime", items: ["RAG", "AI Agents", "AWS Bedrock", "LiveKit", "WebRTC"] },
 ];
 
 const techStackImgs = [
@@ -151,99 +204,73 @@ const techStackIcons = [
 
 const expCards = [
   {
-    review: "At PunkRaven, I work as a full stack developer building AI orchestration systems and AI agents, alongside a React Native app for lawyers, Next.js marketing/product websites, and end-to-end AWS deployments and CI/CD pipelines.",
-    imgPath: "/images/exp1.png",
-    logoPath: "/images/logo1.png",
     title: "Full Stack Developer",
     company: "PunkRaven",
     date: "Jul 2026 – Present",
     location: "Remote",
-    techStack: ["AI Orchestration", "AI Agents", "React Native", "Next.js", "AWS", "CI/CD"],
-    responsibilities: [
-      "Building AI orchestration systems and AI agents as core product features",
-      "Developing a React Native mobile app for lawyers, covering both frontend and backend integration",
-      "Building product and marketing websites using Next.js",
-      "Owning AWS deployments end-to-end, from infrastructure setup through production release",
-      "Setting up and maintaining CI/CD pipelines end-to-end across the applications shipped",
+    summary:
+      "Building two products end to end: LawSafe, a chat-first legal guidance app for India, and Dafter, an open-source realtime AI media toolkit.",
+    highlights: [
+      "LawSafe: designed a clean-architecture FastAPI backend (async Postgres, MongoDB, Redis, background workers) serving 3 Next.js web apps and 2 Expo mobile apps from one monorepo",
+      "Shipped advocate verification end to end, from data model and API to admin, lawyer web and mobile screens with scheduled re-verification, plus role-based auth with a legal-hold role",
+      "Dafter: built the Go control plane for realtime AI sessions (voice agents, live translation, transcription, consent-gated recording) on LiveKit, with JSON Schema as the single source of truth for Go and Python",
+      "Privacy by design and production discipline: per-session E2E encryption, server-derived permissions, OpenTofu on AWS, CI/CD, Playwright and Maestro E2E tests",
     ],
+    techStack: ["FastAPI", "Go", "Next.js", "Expo", "PostgreSQL", "LiveKit", "AWS", "OpenTofu"],
   },
   {
-    review: "As a freelance developer, I delivered a working prototype for Hyacinte AI — a bilingual RAG-powered executive intelligence platform for the ECOWAS region — in just 3 months, featuring multi-tenant security and async document processing.",
-    imgPath: "/images/exp1.png",
-    logoPath: "/images/logo1.png",
     title: "Freelance Full Stack Developer",
     company: "Hyacinte AI",
     date: "Apr 2026 – Jun 2026",
-    location: "Remote (Ghana Client)",
-    techStack: ["Python", "FastAPI", "PostgreSQL", "Qdrant", "Redis", "Dramatiq", "AWS Bedrock", "JWT", "SQLAlchemy 2.0", "Docker", "Git"],
-    responsibilities: [
-      "Delivered a functional backend prototype for a bilingual (English/French) AI executive intelligence platform targeting the ECOWAS region within a tight 3-month freelance engagement",
-      "Implemented a RAG pipeline using Qdrant as the vector database with tenant-scoped payload filtering, and AWS Bedrock (Mistral Large 2) as the LLM provider — chosen specifically to keep all client data within AWS infrastructure and avoid sending sensitive documents to external APIs like OpenAI or Claude",
-      "Implemented a shared-schema multi-tenancy model in PostgreSQL with strict org_id isolation and RBAC middleware to prevent unauthorized cross-organization data access",
-      "Set up asynchronous background task processing using Redis and Dramatiq for OCR, PDF ingestion, and semantic chunking workflows",
-      "Built JWT + bcrypt authentication with a SHA-256 intermediary layer to safely handle bcrypt's 72-byte limit for refresh tokens",
-      "Integrated sentence-transformers locally on CPU for document embedding, with structural citation parsing to ground every AI response in its source documents",
-      "Used SQLAlchemy 2.0 with asyncpg for fully async database interactions across all API and background task layers",
-      "Leveraged AI-assisted development workflows (Claude Code with structured context and skill files) to maintain high development velocity and ship the prototype on schedule as a solo developer"
+    location: "Remote",
+    summary:
+      "Designed and built a bilingual (English/French) AI executive intelligence platform as the sole engineer.",
+    highlights: [
+      "Delivered a working multi-tenant RAG prototype solo in 3 months",
+      "Ran the LLM on AWS Bedrock so sensitive client documents never left AWS",
+      "Org-level data isolation with RBAC in Postgres, tenant-scoped search in Qdrant, and async OCR/ingestion on Redis + Dramatiq",
     ],
+    techStack: ["Python", "FastAPI", "PostgreSQL", "Qdrant", "Redis", "AWS Bedrock"],
   },
   {
-    review: "At Pluto Rides, I contributed to the development of cross-platform mobility applications and backend infrastructure supporting ride management and real-time driver operations.",
-    imgPath: "/images/exp3.png",
-    logoPath: "/images/logo3.png",
     title: "Software Engineer",
     company: "Pluto Rides",
     date: "Jan 2026 – Apr 2026",
     location: "Bengaluru, India",
-    techStack: ["Java", "Spring Boot", "AWS Lambda", "API Gateway", "PostgreSQL", "Kotlin Multiplatform (KMP)", "Compose Multiplatform (CMP)", "Firebase (FCM)", "Git", "CI/CD"],
-    responsibilities: [
-      "Built and deployed 30+ serverless REST endpoints on AWS Lambda and API Gateway for ride and driver management, following architecture guidance from the engineering lead, contributing to a 40% reduction in infrastructure cost",
-      "Developed key modules of the admin panel — ride management, driver verification, analytics, and system monitoring — and helped migrate existing APIs to Spring Boot, as part of a small team",
-      "Implemented PostgreSQL database schemas for ride matching, driver tracking, and transaction management based on designs reviewed with the team's architect, supporting 5+ entity relationships",
-      "Built cross-platform mobile app screens using Kotlin Multiplatform (KMP) and Compose Multiplatform (CMP), reusing 70% of business logic and UI components across iOS and Android",
-      "Added real-time GPS location tracking and Firebase Cloud Messaging (FCM) push notifications for customer and driver apps, improving response rates for time-sensitive ride events by 35%",
-      "Implemented authentication and authorization flows with role-based access control (RBAC) across 3 user roles (customer, driver, admin)",
-      "Set up CI/CD pipelines for automated build, test, and deployment workflows, enabling same-day hotfix releases",
-      "Worked with product and business teams in a 2-week Agile sprint cadence, consistently delivering assigned features on schedule",
-      "Collaborated directly with the CTO and CEO in daily standups to clarify product scope, align on technical requirements, and plan upcoming development milestones"
+    summary:
+      "Built backend and mobile features for a ride-hailing platform, working directly with the CTO and CEO.",
+    highlights: [
+      "Built 30+ serverless REST endpoints on AWS Lambda and API Gateway for ride and driver management",
+      "Built cross-platform app screens in Kotlin/Compose Multiplatform, sharing most business logic across iOS and Android",
+      "Implemented RBAC across customer, driver and admin roles, real-time GPS tracking, push notifications and CI/CD",
     ],
+    techStack: ["Java", "Spring Boot", "AWS Lambda", "PostgreSQL", "Kotlin Multiplatform"],
   },
   {
-    review: "At Qontact, I worked on building intelligent, data-driven web applications from scratch, contributing across frontend, backend, automation pipelines, and AI-powered features.",
-    imgPath: "/images/exp1.png",
-    logoPath: "/images/logo1.png",
     title: "Full Stack Developer",
-    company: "QONTACT",
+    company: "Qontact",
     date: "Apr 2025 – Dec 2025",
     location: "Toronto, Canada (Remote)",
-    techStack: ["Java", "Spring Boot", "Next.js", "FastAPI", "Claude API", "OpenAI API", "Pinecone", "Selenium", "BeautifulSoup", "AWS S3", "Docker", "Git", "Jira"],
-    responsibilities: [
-      "Built a RAG-based AI chatbot for a Next.js application using Claude/OpenAI LLM APIs and a Pinecone vector database, helping cut average support query resolution time by 60%",
-      "Built and maintained 10+ REST API endpoints using FastAPI to support core business workflows, keeping average response times under 200ms",
-      "Built an automated web scraping pipeline using FastAPI, Selenium, and BeautifulSoup to extract and normalize data from 15+ websites into structured JSON, reducing manual data entry time by 80%",
-      "Developed a responsive web application from Figma designs using Next.js 15, ensuring consistent behavior across major browsers and device sizes",
-      "Used AWS S3 for file storage and Docker for containerization, contributing to a 50% drop in environment-related bugs",
-      "Built data transformation pipelines to convert scraped content into standardized JSON, supporting 3 downstream services",
-      "Integrated third-party APIs and webhooks to support real-time event handling",
-      "Worked closely with senior engineers and the tech lead during sprint planning to clarify requirements and understand the technical approach before implementation"
+    summary:
+      "Built AI-powered web applications from scratch across frontend, backend and data pipelines.",
+    highlights: [
+      "Built a RAG support chatbot (Claude/OpenAI + Pinecone) that cut average query resolution time by 60%",
+      "Built FastAPI services and an automated pipeline normalizing data from 15+ sources into structured JSON",
+      "Delivered the Next.js 15 web app from Figma designs",
     ],
+    techStack: ["Next.js", "FastAPI", "Spring Boot", "Pinecone", "Docker"],
   },
   {
-    review: "Rakshan demonstrated exceptional technical skills and delivered high-quality responsive websites for our NGO clients. His attention to detail and problem-solving approach significantly improved our project outcomes.",
-    imgPath: "/images/exp2.png",
-    logoPath: "/images/logo2.png",
     title: "Full Stack Developer Intern",
     company: "WebSeva",
-    date: "September 2024 - December 2024",
+    date: "Sep 2024 – Dec 2024",
     location: "Remote",
-    techStack: ["React.js", "Vercel", "CI/CD", "AI Integration", "HTML5", "CSS3", "JavaScript"],
-    responsibilities: [
-      "Developed and launched responsive websites for NGOs using React.js, increasing user engagement and reducing bounce rates",
-      "Streamlined deployment process on Vercel with CI/CD pipeline, reducing deployment time and eliminating manual deployment errors",
-      "Engineered mobile-responsive layouts that improved mobile traffic and increased cross-device user retention",
-      "Added AI chat boxes customized for each website, enhancing user interaction and providing real-time assistance",
-      "Implemented structured code review protocols that enhanced code quality metrics and decreased post-release issues"
+    summary: "Built and launched websites for NGO clients.",
+    highlights: [
+      "Shipped responsive React websites with custom AI chat assistants",
+      "Set up Vercel CI/CD and code review practices that removed manual deployment errors",
     ],
+    techStack: ["React", "Vercel", "CI/CD"],
   },
 ];
 
@@ -375,7 +402,7 @@ const projects = [
     type: "personal",
     details: {
       overview:
-        "ChiTransit is a full-stack Chicago 'L' transit app: a Spring Boot backend that caches and cleans up CTA's live train data, and an Expo/React Native app with a live map, real-time arrivals, and a trip planner. Built solo in 4 weeks — 167 commits, ~24,000 lines of code, 800+ tests. Feature-complete and tested on Android; not yet publicly deployed.",
+        "ChiTransit is a full-stack Chicago 'L' transit app: a Spring Boot backend that caches and cleans up CTA's live train data, and an Expo/React Native app with a live map, real-time arrivals, and a trip planner. Built solo in 4 weeks with 800+ automated tests. Feature-complete and tested on Android; not yet publicly deployed.",
       highlights: [
         "Custom trip planner that finds both the fastest route and the one with fewest transfers, not just a single \"best\" option",
         "Live map covering all 8 CTA rail lines, with trains that move smoothly between updates instead of jumping",
@@ -387,8 +414,7 @@ const projects = [
         "Trip Planning: A custom routing engine built on Chicago's official train schedule (269,000+ scheduled stops across 8 lines)",
         "Smart Caching: The backend checks CTA once and shares that answer with every user, instead of every phone calling CTA directly",
         "Security: Rate limiting and hashed API keys keep the app safe without needing user accounts",
-        "Testing: 800+ automated tests across an ~24,000-line, 296-file codebase",
-        "Deployment: Costed and ready to launch on Render + a free-tier Postgres database for about $7/month",
+        "Testing: 800+ automated tests across backend and mobile, with architecture rules enforced by ArchUnit",
       ],
       techCategories: {
         "Backend": ["Java 21", "Spring Boot 3.4.2", "Spring WebFlux/MVC", "Flyway"],
@@ -635,15 +661,13 @@ const liveProjects = [
       "/images/chitransit-arrivals.png",
     ],
     tags: ["Spring Boot", "React Native", "Expo", "PostgreSQL", "Trip Planner", "MapLibre"],
-    links: [
-      { label: "Live App (Coming Soon)", url: "https://chitransit.example.com", icon: "globe" },
-    ],
+    links: [],
     featured: false,
     projectRef: "chitransit",
     type: "personal",
     details: {
       overview:
-        "A Spring Boot API caches and cleans up CTA's live train data, and an Expo/React Native app shows a live map, real-time arrivals, and a trip planner. The link above is a placeholder — the app isn't deployed publicly yet, but it's feature-complete and tested on Android: 167 commits, ~24,000 lines of code, 800+ tests.",
+        "A Spring Boot API caches and cleans up CTA's live train data, and an Expo/React Native app shows a live map, real-time arrivals, and a trip planner. It isn't deployed publicly yet, but it's feature-complete and tested on Android, with 800+ automated tests.",
       highlights: [
         "Custom trip planner over Chicago's full train schedule — 269,000+ scheduled stops across 8 lines",
         "One shared backend call serves every user, built around CTA's 100,000-requests-a-day limit",
@@ -831,44 +855,47 @@ const liveProjects = [
 
 const faqData = [
   {
-    question: "Who is Rakshan?",
-    answer: "I am a passionate Full Stack Developer with extensive expertise in modern web technologies, dedicated to building scalable and responsive web applications. Over the years, I have honed my skills across the entire software development lifecycle, from conceptualizing dynamic user interfaces to engineering robust backend architectures. My journey is fueled by an insatiable curiosity for emerging technologies and a drive to solve complex, real-world problems through clean, maintainable, and efficient code. I thrive in collaborative environments where innovative ideas intersect with technical excellence.",
+    question: "What kind of projects do you take on?",
+    answer: "Products that need more than a pretty screen: SaaS platforms, mobile apps, AI features on private data, and the cloud infrastructure behind them. I work best with startups and small teams that need one person who can own the problem from discovery through architecture to a secure production release.",
   },
   {
-    question: "What technologies does Rakshan work with?",
-    answer: "My technical stack is comprehensive and carefully chosen to deliver high-performance, scalable applications. It includes Languages (Java, JavaScript, TypeScript, Python, SQL, HTML5, CSS3), Frameworks (Spring Boot, React.js, Next.js, FastAPI, Express.js, Node.js, KMP, CMP), Cloud & DevOps (AWS - EC2, S3, Lambda, API Gateway, Docker, Vercel, Maven, Git, CI/CD), Databases (PostgreSQL, MySQL, MongoDB, Redis, Pinecone, Redshift), AI & Integration (Claude API, OpenAI API, LangChain, RAG Pipelines, n8n, AI Agents), and Tools & Methods (Postman, Selenium, BeautifulSoup, Firebase/FCM, pgAdmin, Agile/Scrum). I leverage this stack to build everything from robust full-stack applications to intelligent AI-powered systems.",
+    question: "How does a project with you start?",
+    answer: "With the problem, not the tech. We have a short discovery call, I write up a problem statement and a scoped MVP, then an architecture plan with the key decisions and tradeoffs. Only once we agree on that does the build start, so there are no surprises halfway through.",
   },
   {
-    question: "Is Rakshan available for freelance projects?",
-    answer: "Yes, absolutely! I am highly receptive to taking on freelance opportunities and collaborating on exciting new ventures. Whether you are a startup looking to build a Minimum Viable Product (MVP), an established business needing a digital transformation, or an agency requiring specialized technical support, I am ready to bring your vision to life. I pride myself on transparent communication, setting realistic milestones, and delivering exceptional value that aligns perfectly with your strategic goals. Let's schedule a call to discuss how I can contribute to your next big project.",
+    question: "I only have an idea. Is it too early to reach out?",
+    answer: "No, that's often the best time. The cheapest place to fix a wrong assumption is before any code exists. I'll help you pin down who it's for, what the first version really needs, and what it will cost to build and run.",
   },
   {
-    question: "What kind of projects does Rakshan build?",
-    answer: "I develop a diverse portfolio of digital products spanning Web Apps, Mobile Apps, Cloud Infrastructure, and AI. Specifically, I build responsive, full-stack web applications (SaaS, e-commerce) and cross-platform mobile apps for iOS and Android. Beyond the frontend, I implement scalable backend systems and deploy serverless infrastructures on AWS. Furthermore, I integrate AI capabilities—such as RAG pipelines, LLMs, and AI agents—into applications to create intelligent, context-aware solutions. My focus is always on writing clean, functional, and accessible code.",
+    question: "How do you handle security?",
+    answer: "It's built in from day one, not bolted on at the end. Depending on the product, that means proper authentication, role-based access, tenant data isolation, hashed secrets, rate limiting, idempotent integrations, and keeping sensitive data inside your own cloud. I've shipped all of these in production and client work.",
   },
   {
-    question: "Where is Rakshan located?",
-    answer: "I am currently based in India, operating in the Indian Standard Time (IST) zone. However, location has never been a barrier to my professional collaborations. I have extensive experience working asynchronously with international clients and cross-functional teams spanning across North America, Europe, and Asia. I utilize asynchronous communication tools, comprehensive documentation, and overlapping working hours to ensure that projects progress smoothly and transparently, regardless of geographical distance.",
+    question: "Can you work with my existing team or codebase?",
+    answer: "Yes. I've joined early-stage teams and worked directly with founders and CTOs. I can take over a module, review your architecture and security, set up CI/CD and AWS properly, or add AI features to an existing product.",
   },
   {
-    question: "What is Rakshan's educational background?",
-    answer: "I hold a Bachelor of Technology (B.Tech) degree in Electronics and Communication Engineering from the prestigious Vellore Institute of Technology (VIT). During my academic tenure, I developed a strong foundational understanding of computational logic, system architecture, and analytical problem-solving. While my degree is in Electronics, my passion for software engineering drove me to extensively self-educate and undertake rigorous project-based learning in computer science domains. This unique blend of hardware understanding and software proficiency allows me to approach development with a highly structured and optimized mindset.",
+    question: "I'm in the US or Europe. Does the timezone work?",
+    answer: "Yes. I'm based in India (IST) and have worked remotely with clients in Canada and the USA. I keep overlapping hours for calls, share progress in writing, and document decisions so nothing depends on being online at the same time.",
   },
   {
-    question: "How can I hire Rakshan for my project?",
-    answer: "Hiring me is a straightforward and collaborative process. You can initiate contact by reaching out via the contact form on this portfolio, dropping me a direct message on LinkedIn, or sending an email detailing your project requirements. Once we connect, we will schedule an initial consultation to dive deep into your project's scope, objectives, technical constraints, and timeline. After understanding your needs, I will provide a comprehensive proposal outlining the architecture, estimated milestones, and pricing structure. Upon mutual agreement, we will establish a communication rhythm and kick off the development phase immediately.",
+    question: "What do I get at the end?",
+    answer: "A working, deployed system plus everything needed to own it: source code, infrastructure setup, CI/CD pipelines, and handover docs that explain how it's built and why.",
   },
   {
-    question: "Does Rakshan write technical blogs?",
-    answer: "Yes, I am a strong advocate for knowledge sharing and community growth. I regularly write technical articles and comprehensive tutorials covering a wide spectrum of software engineering topics. My writing typically focuses on deep dives into modern web frameworks, best practices for building scalable backend systems, step-by-step guides for integrating AI into conventional applications, and my personal learnings from debugging complex production issues. I aim to distill complex technical concepts into accessible, actionable insights for developers of all skill levels.",
-  }
+    question: "How do I get started?",
+    answer: "Use the form below and tell me about the problem you're trying to solve, plus your timeline and budget if you know them. I'll reply with questions or a time for a quick call.",
+  },
 ];
 
 export {
   words,
-  abilities,
+  processSteps,
+  stackGroups,
+  securityPractices,
+  caseStudies,
+  services,
   logoIconsList,
-  counterItems,
   expCards,
   expLogos,
   testimonials,

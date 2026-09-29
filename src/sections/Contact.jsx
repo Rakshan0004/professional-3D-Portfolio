@@ -86,11 +86,11 @@ const Contact = () => {
     <section id="contact" ref={sectionRef} className="flex-center section-padding">
       <div className="w-full h-full md:px-10 px-5 max-w-7xl mx-auto">
         <TitleHeader
-          title="Get in Touch – Let's Connect"
-          sub="💬 Have questions or ideas? Let's talk! 🚀"
+          title="Tell Me the Problem. I'll Design the System."
+          sub="🚀 Start a Project"
         />
-        <div className="grid-12-cols mt-16">
-          <div className="xl:col-span-6 min-h-[500px] xl:min-h-[580px]">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 xl:gap-10 mt-10">
+          <div className="lg:col-span-6 min-h-[500px] lg:min-h-[440px] 2xl:min-h-[580px]">
             <div className="contact-form-card flex-center card-border rounded-xl p-6 h-full relative overflow-hidden">
               {/* Form UI */}
               <div className={`w-full transition-all duration-500 ${success ? 'opacity-0 scale-95 pointer-events-none' : 'opacity-100 scale-100'}`}>
@@ -126,13 +126,13 @@ const Contact = () => {
                   </div>
 
                   <div>
-                    <label htmlFor="message">Your Message</label>
+                    <label htmlFor="message">What problem are you trying to solve?</label>
                     <textarea
                       id="message"
                       name="message"
                       value={form.message}
                       onChange={handleChange}
-                      placeholder="How can I help you?"
+                      placeholder="What's broken or missing today, who it affects, and your rough timeline & budget if you know them."
                       rows="3"
                       required
                     />
@@ -141,7 +141,7 @@ const Contact = () => {
                   <button type="submit">
                     <div className="cta-button group">
                       <p className="text">
-                        {loading ? "Sending..." : "Send Message"}
+                        {loading ? "Sending..." : "Send Project Details"}
                       </p>
                       <div className="arrow-wrapper">
                         <img src="/images/arrow-down.svg" alt="arrow" />
@@ -163,12 +163,12 @@ const Contact = () => {
                 </div>
                 <h3 className="text-3xl font-bold text-white text-center">Success!</h3>
                 <p className="text-white-50 text-center text-lg">
-                  Your message has been sent successfully. I'll get back to you soon!
+                  Thanks! I'll read through your problem and get back to you with questions or a time for a quick call.
                 </p>
               </div>
             </div>
           </div>
-          <div className="xl:col-span-6 min-h-[400px] xl:min-h-[580px]">
+          <div className="lg:col-span-6 min-h-[400px] lg:min-h-[440px] 2xl:min-h-[580px]">
             <div className="contact-3d-wrapper w-full h-full hover:cursor-grab rounded-3xl overflow-hidden relative">
               {isVisible ? (
                 <ContactExperience />
