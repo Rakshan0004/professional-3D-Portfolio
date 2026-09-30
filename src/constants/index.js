@@ -119,31 +119,100 @@ const services = [
     title: "MVP: Idea to Production",
     desc: "I scope it, architect it and ship a secure first version you can put in front of users.",
     points: ["Discovery & scoping", "Web + mobile apps", "Deployed with CI/CD"],
+    accent: "blue",
   },
   {
     title: "AI & Realtime Features",
     desc: "Cited answers over your documents, AI agents and voice, with private-cloud options for sensitive data.",
     points: ["RAG & AI agents", "Voice & live translation", "Private LLMs on AWS"],
+    accent: "purple",
   },
   {
     title: "Cloud, DevOps & Security",
     desc: "AWS infrastructure as code, pipelines and access control, set up properly from the start.",
     points: ["AWS & OpenTofu", "CI/CD pipelines", "Auth, RBAC & hardening"],
+    accent: "cyan",
   },
   {
     title: "Architecture Review",
     desc: "A review of your system's bottlenecks and security gaps, with a prioritized plan to fix them.",
     points: ["System & data design", "Security gap analysis", "Actionable roadmap"],
+    accent: "emerald",
   },
 ];
 
+// icon: Devicon path ("folder/file" under icons/, pinned in TechStack.jsx); invert: dark logo on dark bg
 const stackGroups = [
-  { label: "Languages", items: ["TypeScript", "Python", "Go", "Java", "SQL"] },
-  { label: "Backend", items: ["FastAPI", "Spring Boot", "Node.js", "REST & WebSockets"] },
-  { label: "Web & Mobile", items: ["Next.js", "React", "Expo / React Native", "Kotlin Multiplatform"] },
-  { label: "Data", items: ["PostgreSQL", "MongoDB", "Redis", "Qdrant", "Pinecone"] },
-  { label: "Cloud & DevOps", items: ["AWS", "OpenTofu", "Docker", "GitHub Actions", "Observability"] },
-  { label: "AI & Realtime", items: ["RAG", "AI Agents", "AWS Bedrock", "LiveKit", "WebRTC"] },
+  {
+    label: "AI & Realtime",
+    note: "Assistants, agents and voice grounded in your data.",
+    accent: "purple",
+    items: [
+      { name: "RAG" },
+      { name: "AI Agents" },
+      { name: "AWS Bedrock", icon: "amazonwebservices/amazonwebservices-original-wordmark", invert: true },
+      { name: "LiveKit" },
+      { name: "WebRTC" },
+    ],
+  },
+  {
+    label: "Backend",
+    note: "APIs that stay fast and predictable under load.",
+    accent: "blue",
+    items: [
+      { name: "FastAPI", icon: "fastapi/fastapi-original" },
+      { name: "Spring Boot", icon: "spring/spring-original" },
+      { name: "Node.js", icon: "nodejs/nodejs-original" },
+      { name: "REST & WebSockets", icon: "socketio/socketio-original", invert: true },
+    ],
+  },
+  {
+    label: "Languages",
+    note: "Picked per problem, not per habit.",
+    accent: "amber",
+    items: [
+      { name: "TypeScript", icon: "typescript/typescript-original" },
+      { name: "Python", icon: "python/python-original" },
+      { name: "Go", icon: "go/go-original" },
+      { name: "Java", icon: "java/java-original" },
+      { name: "SQL", icon: "azuresqldatabase/azuresqldatabase-original" },
+    ],
+  },
+  {
+    label: "Web & Mobile",
+    note: "One codebase where it helps, native where it matters.",
+    accent: "cyan",
+    items: [
+      { name: "Next.js", icon: "nextjs/nextjs-original", invert: true },
+      { name: "React", icon: "react/react-original" },
+      { name: "Expo / React Native", icon: "react/react-original" },
+      { name: "Kotlin Multiplatform", icon: "kotlin/kotlin-original" },
+    ],
+  },
+  {
+    label: "Data",
+    note: "Relational, cache and vector stores.",
+    accent: "emerald",
+    items: [
+      { name: "PostgreSQL", icon: "postgresql/postgresql-original" },
+      { name: "MongoDB", icon: "mongodb/mongodb-original" },
+      { name: "Redis", icon: "redis/redis-original" },
+      { name: "Qdrant" },
+      { name: "Pinecone" },
+    ],
+  },
+  {
+    label: "Cloud & DevOps",
+    note: "Infrastructure as code, shipped through CI/CD.",
+    accent: "rose",
+    items: [
+      { name: "AWS", icon: "amazonwebservices/amazonwebservices-original-wordmark", invert: true },
+      { name: "OpenTofu" },
+      { name: "Docker", icon: "docker/docker-original" },
+      { name: "GitHub Actions", icon: "githubactions/githubactions-original" },
+      { name: "Observability", icon: "grafana/grafana-original" },
+    ],
+  },
 ];
 
 const techStackImgs = [
@@ -584,6 +653,51 @@ const projects = [
     },
   },
   {
+    id: "plutorides",
+    title: "Pluto Rides — Ride-Hailing Platform",
+    description:
+      "A ride-hailing platform live on the App Store and Play Store — cross-platform mobile apps, a serverless AWS backend, an admin dashboard, and a marketing website.",
+    image: "/images/live-plutorides.png",
+    screenshots: [
+      "/images/live-plutorides.png",
+      "/images/live-plutorides-admin.png",
+    ],
+    tags: ["Kotlin Multiplatform", "Compose Multiplatform", "AWS Lambda", "API Gateway", "Spring Boot", "PostgreSQL", "Firebase"],
+    githubUrl: null,
+    demoUrl: "https://plutorides.com/",
+    storeLinks: [
+      {
+        label: "App Store",
+        url: "https://apps.apple.com/in/app/pluto-reliable-commute/id6757488243",
+        icon: "apple",
+      },
+      {
+        label: "Play Store",
+        url: "https://play.google.com/store/apps/details?id=com.pluto.rides",
+        icon: "android",
+      },
+    ],
+    featured: false,
+    type: "company",
+    details: {
+      overview:
+        "Pluto Rides is a ride-hailing platform for reliable daily commutes, published on both the App Store and Play Store. As a Software Engineer working directly with the CTO and CEO, I built backend and mobile features across the stack: serverless APIs on AWS, cross-platform app screens in Kotlin/Compose Multiplatform, and the admin tooling behind them.",
+      highlights: [
+        "Built 30+ serverless REST endpoints on AWS Lambda and API Gateway for ride and driver management",
+        "Built cross-platform app screens in Kotlin/Compose Multiplatform, sharing most business logic across iOS and Android",
+        "Implemented RBAC across customer, driver and admin roles",
+        "Added real-time GPS tracking and Firebase Cloud Messaging push notifications",
+        "Set up CI/CD pipelines enabling same-day hotfix releases",
+      ],
+      techCategories: {
+        "Mobile": ["Kotlin Multiplatform", "Compose Multiplatform"],
+        "Backend": ["Java", "Spring Boot", "AWS Lambda", "API Gateway"],
+        "Database": ["PostgreSQL", "Firebase"],
+        "DevOps": ["CI/CD", "FCM"],
+      },
+    },
+  },
+  {
     id: "immigration",
     title: "Qontact — Immigration Consulting",
     description:
@@ -683,6 +797,50 @@ const liveProjects = [
     },
   },
   {
+    id: "plutorides",
+    title: "Pluto Rides",
+    tagline: "Cross-Platform Ride Mobility Ecosystem",
+    description:
+      "End-to-end ride mobility solution — cross-platform mobile app (iOS & Android), admin dashboard, and marketing website. Built with KMP, AWS Lambda, and Firebase.",
+    image: "/images/live-plutorides.png",
+    tags: ["Kotlin Multiplatform", "AWS Lambda", "PostgreSQL", "Firebase", "FCM"],
+    links: [
+      { label: "Website", url: "https://plutorides.com/", icon: "globe" },
+      {
+        label: "Play Store",
+        url: "https://play.google.com/store/apps/details?id=com.pluto.rides",
+        icon: "android",
+      },
+      {
+        label: "App Store",
+        url: "https://apps.apple.com/in/app/pluto-reliable-commute/id6757488243",
+        icon: "apple",
+      },
+      // Kept last so cards (which show the first 2–3 links) hide it; visible on the detail page
+      { label: "Admin Panel", url: "https://admin.plutorides.com/", icon: "admin" },
+    ],
+    featured: false,
+    type: "company",
+    projectRef: "plutorides",
+    details: {
+      overview:
+        "End-to-end ride mobility ecosystem including cross-platform mobile apps (iOS & Android), admin dashboard, serverless backend, and marketing website. Built at Pluto Rides as a Software Engineer.",
+      highlights: [
+        "Built 30+ serverless REST endpoints on AWS Lambda and API Gateway",
+        "Developed cross-platform mobile screens using Kotlin Multiplatform (KMP) and Compose Multiplatform",
+        "Added real-time GPS tracking and Firebase Cloud Messaging push notifications",
+        "Implemented RBAC across 3 user roles (customer, driver, admin)",
+        "Set up CI/CD pipelines for same-day hotfix releases",
+      ],
+      techCategories: {
+        "Mobile": ["Kotlin Multiplatform", "Compose Multiplatform"],
+        "Backend": ["AWS Lambda", "API Gateway", "Spring Boot"],
+        "Database": ["PostgreSQL", "Firebase"],
+        "DevOps": ["CI/CD", "FCM"],
+      },
+    },
+  },
+  {
     id: "logistics-platform",
     title: "Logistics Platform",
     tagline: "Multi-Courier Logistics Aggregator",
@@ -777,48 +935,6 @@ const liveProjects = [
         "Frontend": ["Next.js 15", "React"],
         "Backend": ["FastAPI", "Python"],
         "Database": ["PostgreSQL"],
-      },
-    },
-  },
-  {
-    id: "plutorides",
-    title: "Pluto Rides",
-    tagline: "Cross-Platform Ride Mobility Ecosystem",
-    description:
-      "End-to-end ride mobility solution — cross-platform mobile app (iOS & Android), admin dashboard, and marketing website. Built with KMP, AWS Lambda, and Firebase.",
-    image: "/images/live-plutorides.png",
-    tags: ["Kotlin Multiplatform", "AWS Lambda", "PostgreSQL", "Firebase", "FCM"],
-    links: [
-      { label: "Website", url: "https://plutorides.com/", icon: "globe" },
-      { label: "Admin Panel", url: "https://admin.plutorides.com/", icon: "admin" },
-      {
-        label: "Play Store",
-        url: "https://play.google.com/store/apps/details?id=com.pluto.rides&hl=en_IN",
-        icon: "android",
-      },
-      {
-        label: "App Store",
-        url: "https://apps.apple.com/in/app/pluto-reliable-commute/id6757488243",
-        icon: "apple",
-      },
-    ],
-    featured: false,
-    type: "company",
-    details: {
-      overview:
-        "End-to-end ride mobility ecosystem including cross-platform mobile apps (iOS & Android), admin dashboard, serverless backend, and marketing website. Built at Pluto Rides as a Software Engineer.",
-      highlights: [
-        "Built 30+ serverless REST endpoints on AWS Lambda and API Gateway",
-        "Developed cross-platform mobile screens using Kotlin Multiplatform (KMP) and Compose Multiplatform",
-        "Added real-time GPS tracking and Firebase Cloud Messaging push notifications",
-        "Implemented RBAC across 3 user roles (customer, driver, admin)",
-        "Set up CI/CD pipelines for same-day hotfix releases",
-      ],
-      techCategories: {
-        "Mobile": ["Kotlin Multiplatform", "Compose Multiplatform"],
-        "Backend": ["AWS Lambda", "API Gateway", "Spring Boot"],
-        "Database": ["PostgreSQL", "Firebase"],
-        "DevOps": ["CI/CD", "FCM"],
       },
     },
   },

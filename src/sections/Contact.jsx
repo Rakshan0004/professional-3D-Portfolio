@@ -84,21 +84,22 @@ const Contact = () => {
 
   return (
     <section id="contact" ref={sectionRef} className="flex-center section-padding">
-      <div className="w-full h-full md:px-10 px-5 max-w-7xl mx-auto">
+      <div className="w-full h-full md:px-10 max-w-7xl mx-auto">
         <TitleHeader
           title="Tell Me the Problem. I'll Design the System."
           sub="🚀 Start a Project"
         />
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 xl:gap-10 mt-10">
-          <div className="lg:col-span-6 min-h-[500px] lg:min-h-[440px] 2xl:min-h-[580px]">
-            <div className="contact-form-card flex-center card-border rounded-xl p-6 h-full relative overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-10 max-w-5xl mx-auto">
+          <div>
+            <div className="contact-form-card compact-form flex-center card-border rounded-2xl p-6 md:p-7 h-full relative overflow-hidden">
               {/* Form UI */}
               <div className={`w-full transition-all duration-500 ${success ? 'opacity-0 scale-95 pointer-events-none' : 'opacity-100 scale-100'}`}>
                 <form
                   ref={formRef}
                   onSubmit={handleSubmit}
-                  className="w-full flex flex-col gap-4"
+                  className="w-full flex flex-col gap-3.5"
                 >
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                   <div>
                     <label htmlFor="user_name">Your name</label>
                     <input
@@ -107,7 +108,7 @@ const Contact = () => {
                       name="user_name"
                       value={form.user_name}
                       onChange={handleChange}
-                      placeholder="What's your good name?"
+                      placeholder="Your name"
                       required
                     />
                   </div>
@@ -120,9 +121,10 @@ const Contact = () => {
                       name="user_email"
                       value={form.user_email}
                       onChange={handleChange}
-                      placeholder="What's your email address?"
+                      placeholder="you@company.com"
                       required
                     />
+                  </div>
                   </div>
 
                   <div>
@@ -133,12 +135,12 @@ const Contact = () => {
                       value={form.message}
                       onChange={handleChange}
                       placeholder="What's broken or missing today, who it affects, and your rough timeline & budget if you know them."
-                      rows="3"
+                      rows="4"
                       required
                     />
                   </div>
 
-                  <button type="submit">
+                  <button type="submit" className="w-full h-11 mt-1">
                     <div className="cta-button group">
                       <p className="text">
                         {loading ? "Sending..." : "Send Project Details"}
@@ -161,14 +163,14 @@ const Contact = () => {
                     <div className="icon-fix"></div>
                   </div>
                 </div>
-                <h3 className="text-3xl font-bold text-white text-center">Success!</h3>
-                <p className="text-white-50 text-center text-lg">
+                <h3 className="text-2xl font-bold text-white text-center">Success!</h3>
+                <p className="text-white-50 text-center">
                   Thanks! I'll read through your problem and get back to you with questions or a time for a quick call.
                 </p>
               </div>
             </div>
           </div>
-          <div className="lg:col-span-6 min-h-[400px] lg:min-h-[440px] 2xl:min-h-[580px]">
+          <div className="h-[320px] lg:h-[330px]">
             <div className="contact-3d-wrapper w-full h-full hover:cursor-grab rounded-3xl overflow-hidden relative">
               {isVisible ? (
                 <ContactExperience />

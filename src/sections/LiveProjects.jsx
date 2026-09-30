@@ -135,7 +135,7 @@ const LiveProjects = () => {
   const titleRef = useRef(null);
   const cardRefs = useRef([]);
 
-  const previewProjects = liveProjects.filter((p) => HOMEPAGE_LIVE_IDS.includes(p.id));
+  const previewProjects = HOMEPAGE_LIVE_IDS.map((id) => liveProjects.find((p) => p.id === id)).filter(Boolean);
 
   useGSAP(() => {
     gsap.fromTo(titleRef.current, { y: 24, opacity: 0 }, {
