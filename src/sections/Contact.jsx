@@ -10,6 +10,7 @@ const Contact = () => {
   const [loading, setLoading] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [error, setError] = useState("");
   const [form, setForm] = useState({
     user_name: "",
     user_email: "",
@@ -58,12 +59,11 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setError("");
 
     const serviceId = import.meta.env.VITE_APP_EMAILJS_SERVICE_ID || "service_h80ngbw";
     const templateId = import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID || "template_wjbwf2o";
     const publicKey = import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY || "7PfPCTSnd4gZ-Mgkk";
-
-    console.log("Sending email with credentials:", { serviceId, templateId, publicKey });
 
     try {
       await emailjs.sendForm(
@@ -77,6 +77,7 @@ const Contact = () => {
       setForm({ user_name: "", user_email: "", message: "" });
     } catch (error) {
       console.error("EmailJS Error:", error);
+      setError("Something went wrong sending your message. Please try again or email me directly.");
     } finally {
       setLoading(false);
     }
@@ -140,7 +141,11 @@ const Contact = () => {
                     />
                   </div>
 
-                  <button type="submit" className="w-full h-11 mt-1">
+                  {error && (
+                    <p className="text-red-400 text-sm" role="alert">{error}</p>
+                  )}
+
+                  <button type="submit" className="w-full h-11 mt-1" disabled={loading}>
                     <div className="cta-button group">
                       <p className="text">
                         {loading ? "Sending..." : "Send Project Details"}

@@ -51,13 +51,9 @@ const Particles = ({ count = 200 }) => {
 
   return (
     <points ref={mesh}>
-      <bufferGeometry>
-        <bufferAttribute
-          attach="attributes-position"
-          count={count}
-          array={positions}
-          itemSize={3}
-        />
+      {/* Keyed by count: WebGL buffers can't be resized, so a new count needs a fresh geometry */}
+      <bufferGeometry key={count}>
+        <bufferAttribute attach="attributes-position" args={[positions, 3]} />
       </bufferGeometry>
       <pointsMaterial
         color="#ffffff"
